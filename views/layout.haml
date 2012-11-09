@@ -1,0 +1,19 @@
+%html
+  %head
+    %title Shampy
+    %link{ rel: "stylesheet", href: "/css/main.css" }
+  %body
+    #container
+      %header
+        %h1 Shampy
+      %nav
+        - link_to "Chi Siamo",  "/chi_siamo"
+        - link_to "Offerta",    "/offerta"
+        - link_to "Mission",    "/mission"
+        - link_to "Preview",    "/preview"
+      %nav.member
+        - link_to "Norme",      "/norme"
+        - link_to "Modelli",    "/modelli"
+        - link_to "Prodotti",   "/prodotti"
+      %section.content= yield
+    %script{ type: "text/javascript", src: "/js/app.js" }
