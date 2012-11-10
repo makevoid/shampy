@@ -1,0 +1,9 @@
+%h1 Registrazione
+
+- validations_for @user
+
+%form{ action: "/users", method: "post" }
+  - input @user, :username
+  - input @user, :password, type: "password"
+  - input @user, :password_confirmation, type: "password", label: "Conferma password"
+  - submit "Registrati"

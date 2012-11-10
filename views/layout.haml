@@ -4,16 +4,29 @@
     %link{ rel: "stylesheet", href: "/css/main.css" }
   %body
     #container
+      %nav.right
+        - if logged_in?
+          %form{ action: "/logout", method: "post" }
+            %input{ type: "submit", value: "Logout" }
+          .user_name
+            %a.btn{ href: "/users/#{current_user.id}" }= current_user.username
+        - else
+          %a.btn{ href: "/login" } Login
+          o
+          %a.btn{ href: "/register" } Registrati
       %header
-        %h1 Shampy
-      %nav
+        %h1
+          - link_to "Shampy", "/"
+      %nav.main
         - link_to "Chi Siamo",  "/chi_siamo"
         - link_to "Offerta",    "/offerta"
         - link_to "Mission",    "/mission"
         - link_to "Preview",    "/preview"
-      %nav.member
+        - # member
         - link_to "Norme",      "/norme"
         - link_to "Modelli",    "/modelli"
         - link_to "Prodotti",   "/prodotti"
+        - if admin?
+          - link_to "Utenti",     "/users"
       %section.content= yield
     %script{ type: "text/javascript", src: "/js/app.js" }

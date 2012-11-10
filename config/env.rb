@@ -1,5 +1,8 @@
 path = File.expand_path '../../', __FILE__
+PATH = path
 APP = "shampy"
+
+ADMIN_EMAIL = "cabrini1@hotmail.it"
 
 require "bundler/setup"
 Bundler.require :default
@@ -13,6 +16,9 @@ end
 include Utils
 
 env = ENV["RACK_ENV"] || "development"
-# DataMapper.setup :default, "mysql://localhost/shampy_#{env}"
+DataMapper.setup :default, "mysql://localhost/shampy_#{env}"
+
 require_all "#{path}/models"
-# DataMapper.finalize
+require "#{path}/config/sinatra_exts.rb"
+
+DataMapper.finalize

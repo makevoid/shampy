@@ -5,6 +5,22 @@ require "#{path}/config/env.rb"
 class Shampy < Sinatra::Base
   include Voidtools::Sinatra::ViewHelpers
 
+  @@path = File.expand_path '../', __FILE__
+
+  set :root, @@path
+
+  require "#{@@path}/lib/form_helpers"
+  include FormHelpers
+
+  configure :development do
+    before do
+      unless defined?(@@session_set)
+        @@session_set = true
+        session[:user_id] = User.last.id
+      end
+    end
+  end
+
   # partial :comment, { comment: "blah" }
   # partial :comment, comment
 
@@ -17,6 +33,19 @@ class Shampy < Sinatra::Base
     end
     haml "_#{name}".to_sym, locals: locals
   end
+
+  # flash messages
+
+  def flash
+    @@flashes ||= {}
+  end
+
+  after do
+    @@flashes = {}
+  end
+
 end
 
 require_all "#{path}/routes"
+
+LOAD_MODULES_ROUTES.call

@@ -1,2 +1,166 @@
+//$main: #D00
+$main: #CF135E
+$bg: #EEEEEE
+$fg: rgba(255, 255, 255, 1)// #FFF
+$fg2: rgba(255, 255, 255, 0.9)// #FFF
+$fg3: rgba(210, 210, 210, 0.7)// #FFF
+$fg4: rgba(180, 180, 180, 0.8)// #FFF
+$text: #111
+$fonts_default: Georgia, Verdana, Arial
+
+@import "libs"
+
+a
+  text-decoration: none
+
+ul
+  list-style-type: none
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
 body
-  background: #EEE
+  background: $bg
+  // background: url(/images/d3c.png) no-repeat $bg
+  background-size: 100%
+  font-family: $fonts_default
+  color: $text
+
+a
+  color: $main
+a:hover
+  color: $main + #211
+a.btn, nav.main a
+  +button
+  background: $main
+  color: #fff
+  &:hover
+    +emboss_hover
+    background: #fff
+    color: $main
+
+h1, nav.main
+  display: inline-block
+
+h1
+  text-shadow: 2px 1px 1px #FFF
+
+.content h1
+  font-size: 1.7em
+  color: $main
+  text-shadow:  1px 1px 1px #FFF, 1px 1px 4px #777
+
+
+nav.main
+  margin: 0 0 15px
+
+
+
+header
+  h1
+    font-size: 2.2em
+    text-shadow:  1px 1px 1px #FFF, 1px 1px 4px #222
+  input[type='submit']
+    margin: 0
+h1
+  margin: 0 0 10px 0
+
+
+.user
+  margin: 0 0 10px 0
+  +box
+
+.users .user
+  cursor: pointer
+  &:hover
+    +box_hover
+
+.users
+  .user
+    a
+      font-weight: bold
+      display: inline-block
+    .name
+      display: inline-block
+      margin: 0 0 0 0.7%
+    .role
+      float: right
+    .avatar
+      width: 40px
+      +radius(5px)
+      margin: 6px 0 0 0
+
+.user
+  h2
+    margin: 20px 0 10px 0
+  .title a
+    font-weight: bold
+  .avatar
+    margin: 3px 1.3% 0 0
+    width: 128px
+    +radius(8px)
+  .info
+    margin: 10px 0 0
+  .signature
+    margin: 10px 0 0
+  .avatar
+    float: left
+
+label
+  font-size: 0.85em
+  font-weight: bold
+  margin: 0 0 4px
+  display: block
+
+input, textarea
+  font-size: 1.1em
+  display: block
+  margin: 0 0 15px
+  padding: 2px 5px
+  width: 30%
+
+textarea
+  height: 400px
+
+.submit
+  width: 30%
+  clear: right
+
+.post_form, .reply
+  input, textarea, .submit
+    width: 70%
+
+input[type='submit']
+  font-size: 1.2em
+  width: auto
+  float: right
+  display: inline-block
+  +button
+  background: $main
+  color: #fff
+  font-family: $fonts_default
+  &:hover
+    +emboss_hover
+    background: #fff
+    color: $main
+
+.content input[type='submit']
+  margin: 10px 0 20px 0
+
+.clear
+  clear: both
+
+.right
+  float: right
+  form, .user_name
+    float: right
+  .user_name
+    margin: 4px 12px 0 0
+  input
+    margin: 0
+
+#container
+  width: 92%
+  margin: 20px auto
