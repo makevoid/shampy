@@ -18,10 +18,11 @@
         %h1
           - link_to "Shampy", "/"
       %nav.main
-        - link_to "Chi Siamo",  "/chi_siamo"
-        - link_to "Offerta",    "/offerta"
-        - link_to "Mission",    "/mission"
-        - link_to "Preview",    "/preview"
+        - if admin? || !member?
+          - link_to "Chi Siamo",  "/chi_siamo"
+          - link_to "Offerta",    "/offerta"
+          - link_to "Mission",    "/mission"
+          - link_to "Preview",    "/preview"
         -# member
         -# categorie: uomo, donna, bambino, sposa
         - if member?
