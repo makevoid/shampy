@@ -22,14 +22,14 @@ ul {
   box-sizing: border-box; }
 
 body {
-  background: #f7d8d5;
-  background: #ffebe8;
-  background: linear-gradient(top, #ffebe8, #c4a5a2);
-  background: -o-linear-gradient(top, #ffebe8, #c4a5a2);
-  background: -moz-linear-gradient(top, #ffebe8, #c4a5a2);
-  background: -webkit-linear-gradient(top, #ffebe8, #c4a5a2);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #ffebe8), color-stop(0, #c4a5a2));
-  background: -ms-linear-gradient(top, #ffebe8, #c4a5a2);
+  background: #f9d0cc;
+  background: #ffeae6;
+  background: linear-gradient(top, #ffeae6, #ffb4ad);
+  background: -o-linear-gradient(top, #ffeae6, #ffb4ad);
+  background: -moz-linear-gradient(top, #ffeae6, #ffb4ad);
+  background: -webkit-linear-gradient(top, #ffeae6, #ffb4ad);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #ffeae6), color-stop(0, #ffb4ad));
+  background: -ms-linear-gradient(top, #ffeae6, #ffb4ad);
   background-size: 100%;
   font-family: Aller, Verdana, Arial;
   color: #333333; }
