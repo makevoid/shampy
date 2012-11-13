@@ -28,5 +28,12 @@
         - link_to "Prodotti",   "/prodotti"
         - if admin?
           - link_to "Utenti",     "/users"
+
+      .gallery
+        %img{ src: "/img/gallery/1.png" }
+        %img{ src: "/img/gallery/2.png" }
+        %img{ src: "/img/gallery/3.png" }
+      .clear
+
       %section.content= yield
     %script{ type: "text/javascript", src: "/js/app.js" }
