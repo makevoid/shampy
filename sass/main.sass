@@ -1,12 +1,29 @@
 //$main: #D00
-$main: #CF135E
-$bg: #FAFAFA
+$main: #333
+$base: #f9d0cc
+//$base: #d9c0ac
+$bg:  darken(saturate($base, 20%), 5%)
+$bg2: $base + #1A1A1A
 $fg: rgba(255, 255, 255, 1)// #FFF
 $fg2: rgba(255, 255, 255, 0.9)// #FFF
 $fg3: rgba(210, 210, 210, 0.7)// #FFF
 $fg4: rgba(180, 180, 180, 0.8)// #FFF
-$text: #111
-$fonts_default: Georgia, Verdana, Arial
+$text: #333
+$fonts_default: Aller, Verdana, Arial
+$fonts_titles: Bebas
+$fonts_navs: Dubiel
+
+@font-face
+  font-family: Aller
+  src: url(/fonts/aller.ttf)
+
+@font-face
+  font-family: Bebas
+  src: url(/fonts/bebas_neue.otf)
+
+@font-face
+  font-family: Dubiel
+  src: url(/fonts/dubiel.ttf)
 
 @import "libs"
 
@@ -22,8 +39,9 @@ ul
   box-sizing: border-box
 
 body
-  background: $bg
+  background: $base
   // background: url(/images/d3c.png) no-repeat $bg
+  +gradient($bg2, $bg)
   background-size: 100%
   font-family: $fonts_default
   color: $text
@@ -34,38 +52,138 @@ a:hover
   color: $main + #211
 a.btn, nav.main a
   +button
+  //background: $main
+  &:hover
+    //+emboss_hover
+    background: #fff
+    color: $main
+
+h1, h2, h3, h4, h5, h6
+  font-family: $fonts_navs
+  font-weight: normal
+
+nav.main
+  font-family: $fonts_titles
+  font-size: 1.1em
+
+h1, nav.main
+  margin: 0 0 15px
+
+.content h1
+  font-size: 1.9em
+  color: $main
+
+header
+  h1
+    font-size: 2.8em
+  input[type='submit']
+    margin: 0
+
+
+.clear
+  clear: both
+
+.right
+  float: right
+  form, .user_name
+    float: right
+  .user_name
+    margin: 4px 12px 0 0
+  input
+    margin: 0
+
+#container
+  width: 92%
+  margin: 20px auto
+
+.gallery
+  width: 100%
+  margin: 0 0 30px
+  float: left
+  img
+    width: 33%
+    float: left
+
+.content ul li
+  margin: 0 0 5px 0
+
+img.inpage
+  float: left
+  width: 45%
+  margin: 3px 1.5% 3px 0
+  &:first-child
+    margin: 0 0 3px 1.5%
+  &.right
+    float: right
+    margin: 3px 0 3px 1.5%
+
+.content h1
+  margin: 30px 0 10px 0
+  &.first
+    margin: 0 0 10px 0
+
+
+.features
+  ul
+    list-style-type: disc
+    float: left
+    padding: 0 0 10px 20px
+    width: 53%
+    font-size: 1.2em
+
+  p
+    float: left
+    width: 53%
+
+
+.iscriviti
+  text-align: center
+  font-size: 2.1em
+  margin: 40px auto 0
+  a
+    padding: 12px 10px 2px
+
+// forms
+
+label
+  font-size: 0.85em
+  font-weight: bold
+  margin: 0 0 4px
+  display: block
+
+input, textarea
+  font-size: 1.1em
+  display: block
+  margin: 0 0 15px
+  padding: 2px 5px
+  width: 30%
+
+textarea
+  height: 400px
+
+.submit
+  width: 30%
+  clear: right
+
+input[type='submit']
+  font-size: 1.2em
+  width: auto
+  float: right
+  display: inline-block
+  +button
   background: $main
   color: #fff
+  font-family: $fonts_default
   &:hover
     +emboss_hover
     background: #fff
     color: $main
 
-h1, nav.main
-  display: inline-block
-
-h1
-  text-shadow: 2px 1px 1px #FFF
-
-.content h1
-  font-size: 1.7em
-  color: $main
-  text-shadow:  1px 1px 1px #FFF, 1px 1px 4px #777
+.content input[type='submit']
+  margin: 10px 0 20px 0
 
 
-nav.main
-  margin: 0 0 15px
-  a
-    line-height: 30px
-
-header
-  h1
-    font-size: 2.2em
-    text-shadow:  1px 1px 1px #FFF, 1px 1px 4px #222
-  input[type='submit']
-    margin: 0
-h1
-  margin: 0 0 10px 0
+// users
 
 .user
   margin: 0 0 10px 0
@@ -106,60 +224,3 @@ h1
     margin: 10px 0 0
   .avatar
     float: left
-
-label
-  font-size: 0.85em
-  font-weight: bold
-  margin: 0 0 4px
-  display: block
-
-input, textarea
-  font-size: 1.1em
-  display: block
-  margin: 0 0 15px
-  padding: 2px 5px
-  width: 30%
-
-textarea
-  height: 400px
-
-.submit
-  width: 30%
-  clear: right
-
-.post_form, .reply
-  input, textarea, .submit
-    width: 70%
-
-input[type='submit']
-  font-size: 1.2em
-  width: auto
-  float: right
-  display: inline-block
-  +button
-  background: $main
-  color: #fff
-  font-family: $fonts_default
-  &:hover
-    +emboss_hover
-    background: #fff
-    color: $main
-
-.content input[type='submit']
-  margin: 10px 0 20px 0
-
-.clear
-  clear: both
-
-.right
-  float: right
-  form, .user_name
-    float: right
-  .user_name
-    margin: 4px 12px 0 0
-  input
-    margin: 0
-
-#container
-  width: 92%
-  margin: 20px auto
