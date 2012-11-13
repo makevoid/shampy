@@ -2,7 +2,7 @@
   %head
     %title Shampy
     %link{ rel: "stylesheet", href: "/css/main.css" }
-  %body
+  %body{  }
     #container
       %nav.right
         - if logged_in?
@@ -22,7 +22,11 @@
         - link_to "Offerta",    "/offerta"
         - link_to "Mission",    "/mission"
         - link_to "Preview",    "/preview"
-        - # member
+        -# member
+        -# categorie: uomo, donna, bambino, sposa
+        - link_to "Foto",       "/foto"
+        - link_to "Tagli",      "/tagli"
+        -# sottocategorie: stilisti (Sesler, Anthony Jhon)
         - link_to "Norme",      "/norme"
         - link_to "Modelli",    "/modelli"
         - link_to "Prodotti",   "/prodotti"

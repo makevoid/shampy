@@ -22,6 +22,20 @@ class Shampy < Sinatra::Base
 
   # member
 
+  get "/foto" do
+    haml :foto
+  end
+
+  get "/foto/:type" do |type|
+    @type = type
+    halt 404, "Not found" unless Type.all.include? type
+    haml :foto_type
+  end
+
+  get "/tagli" do
+    haml :tagli
+  end
+
   get "/norme" do
     haml :norme
   end
