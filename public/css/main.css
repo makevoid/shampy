@@ -99,7 +99,8 @@ header input[type='submit'] {
     width: 33%;
     position: absolute;
     -webkit-transition-property: transform;
-    -webkit-transition-duration: 1.5s; }
+    -webkit-transition-duration: 1.2s;
+    -webkit-transition-timing-function: ease-in-out; }
   .gallery .pos0 {
     left: 0;
     opacity: 0;

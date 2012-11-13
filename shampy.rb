@@ -1,4 +1,5 @@
 path = File.expand_path '../', __FILE__
+PATH = path
 
 require "#{path}/config/env.rb"
 
@@ -19,6 +20,12 @@ class Shampy < Sinatra::Base
         session[:user_id] = User.last.id
       end
     end
+  end
+
+  before do
+    @photos = Dir.glob("#{PATH}/public/img/gallery/*.png").map do |photo|
+      File.basename photo
+    end.shuffle
   end
 
   # partial :comment, { comment: "blah" }
