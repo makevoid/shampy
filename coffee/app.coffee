@@ -21,7 +21,6 @@ gal.assign_classes = ->
   $(gal.photos[4]).addClass "pos4"
   $(gal.photos[5]).addClass "pos5"
 
-
 gal.frame = ->
   gal.photos_imgs().each (id, el) ->
     $(el).removeClass()
@@ -34,12 +33,10 @@ gal.animate_frame = ->
   setTimeout ->
     gal.frame()
     gal.animate_frame()
-  , 5000
+  , 7000
 
 gal.animate = ->
-  gal.frame()
   gal.animate_frame()
-
 
 $ ->
   gal.photos = $.makeArray gal.photos_imgs()

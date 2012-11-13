@@ -41,11 +41,10 @@
     return setTimeout(function() {
       gal.frame();
       return gal.animate_frame();
-    }, 5000);
+    }, 7000);
   };
 
   gal.animate = function() {
-    gal.frame();
     return gal.animate_frame();
   };
 
