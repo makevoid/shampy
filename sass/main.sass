@@ -98,18 +98,31 @@ header
 
 .gallery
   width: 100%
+  height: 621px
   margin: 0 0 30px
-  float: left
+  position: relative
+  overflow: hidden
   img
     width: 33%
-    float: left
+    position: absolute
+    -webkit-transition-property: transform
+    -webkit-transition-duration: 1s
+
+  .pos0
+  .pos1
+    left: 33%
+  .pos2
+  .pos3
+    left: 66%
+  .pos4
+    left: 102%
 
 .content ul li
   margin: 0 0 5px 0
 
 img.inpage
   float: left
-  width: 45%
+  width: 50%
   margin: 3px 1.5% 3px 0
   &:first-child
     margin: 0 0 3px 1.5%
@@ -124,16 +137,17 @@ img.inpage
 
 
 .features
+  clear: both
   ul
     list-style-type: disc
     float: left
     padding: 0 0 10px 20px
-    width: 53%
+    width: 43%
     font-size: 1.2em
 
   p
     float: left
-    width: 53%
+    width: 43%
 
 
 .iscriviti
@@ -170,14 +184,10 @@ input[type='submit']
   width: auto
   float: right
   display: inline-block
-  +button
-  background: $main
-  color: #fff
+  //+button
   font-family: $fonts_default
   &:hover
-    +emboss_hover
-    background: #fff
-    color: $main
+    //+emboss_hover
 
 .content input[type='submit']
   margin: 10px 0 20px 0

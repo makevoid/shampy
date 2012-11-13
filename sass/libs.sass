@@ -14,6 +14,12 @@
   background: -webkit-gradient(linear, left bottom, left top, color-stop(1, $start), color-stop(0, $end))
   background: -ms-linear-gradient(top, $start, $end)
 
+=transform($transform)
+  transform: $transform
+  -moz-transform: $transform
+  -webkit-transform: $transform
+  -o-transform: $transform
+
 =emboss
   border:       1px solid $fg - #777
   border-left:  1px solid $fg - #666
