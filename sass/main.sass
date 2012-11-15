@@ -203,7 +203,11 @@ $box_width2: $box_width*2 + $box_margin
 
 .home .column_right
   float: left
+  // webkit
   width: $box_width + $box_margin
+  // firefox
+  width: $box_width
+
   img
     display: block
     width: 100%
@@ -218,13 +222,19 @@ $box_width2: $box_width*2 + $box_margin
     -webkit-transition-duration: 1s
     -webkit-transition-timing-function: ease-in-out
     -webkit-transform: rotateY(0deg) translate3d(0, 0, 0)
+    -moz-transition-property: all
+    -moz-transition-duration: 1s
+    -moz-transition-timing-function: ease-in-out
+    -moz-transform: rotateY(0deg) translate(0, 0)
   img:nth-of-type(4n)
     margin: 0 0 $box_margin 0
   img.flip
     -webkit-transform: rotateY(90deg)
+    -moz-transform: rotateY(90deg)
     // translate3d(100px, 100px, 0)
   img.slide
     -webkit-transform: translate3d(102.5%, 0, 0)
+    -moz-transform: translate(102.5%, 0)
 
 $gal_width: 100%
 
