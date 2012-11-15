@@ -41,7 +41,7 @@ ul
 body
   background: $base
   // background: url(/images/d3c.png) no-repeat $bg
-  +gradient($bg2, $bg)
+  //+gradient($bg2, $bg)
   background-size: 100%
   font-family: $fonts_default
   color: $text
@@ -95,39 +95,7 @@ header
 #container
   width: 92%
   margin: 20px auto
-
-.gallery
-  width: 100%
-  height: 621px
-  margin: 0 0 30px
-  position: relative
-  overflow: hidden
-  img
-    width: 33%
-    position: absolute
-    -webkit-transition-property: transform
-    -webkit-transition-duration: 1.2s
-    -webkit-transition-timing-function: ease-in-out
-
-  .pos0
-    left: 0
-    opacity: 0
-    left: -33%
-  .pos1
-    left: 0
-    opacity: 1
-  .pos2
-    left: 33.3%
-  .pos3
-    left: 66.6%
-    opacity: 1
-  .pos4
-    left: 99.9%
-    opacity: 0
-  .pos5
-    left: 99.9%
-    opacity: 0
-
+  max-width: 1200px
 
 .content ul li
   margin: 0 0 5px 0
@@ -203,6 +171,111 @@ input[type='submit']
 
 .content input[type='submit']
   margin: 10px 0 20px 0
+
+// gallery
+
+.gallery, .gallery_simple
+  width: 100%
+  position: relative
+  overflow: hidden
+  img
+    position: absolute
+    -webkit-transition-property: transform
+    -webkit-transition-timing-function: ease-in-out
+
+
+
+// home
+
+// 4 boxes
+$box_width: 23.75%
+$box_margin: (100% - $box_width*4) / 3
+$box_width3: $box_width*3 + $box_margin*2
+$box_width2: $box_width*2 + $box_margin
+
+.home img.full
+  width: 100%
+  height: 60px
+  margin: 0 0 $box_margin 0
+
+.home .gallery_simple
+  float: left
+
+.home .column_right
+  float: left
+  width: $box_width + $box_margin
+  img
+    display: block
+    width: 100%
+    padding: 0 0 $box_margin*4 $box_margin*4
+
+.home .boxes
+  img
+    width: $box_width
+    float: left
+    margin: 0 $box_margin $box_margin 0
+    -webkit-transition-property: transform
+    -webkit-transition-duration: 1s
+    -webkit-transition-timing-function: ease-in-out
+    -webkit-transform: rotateY(0deg) translate3d(0, 0, 0)
+  img:nth-of-type(4n)
+    margin: 0 0 $box_margin 0
+  img.flip
+    -webkit-transform: rotateY(90deg)
+    // translate3d(100px, 100px, 0)
+  img.slide
+    -webkit-transform: translate3d(102.5%, 0, 0)
+
+$gal_width: 100%
+
+.gallery_simple
+  height: 621px
+  margin: 0 0 1% 0
+  width: $box_width3
+  img
+    width: $gal_width
+    -webkit-transition-duration: 1.2s
+    opacity: 0
+  .pos0
+    left: -$gal_width
+    opacity: 0
+  .pos1
+    left: -$gal_width
+    opacity: 1
+  .pos2
+    left: 0
+    opacity: 1
+  .pos3
+    left: $gal_width
+    opacity: 0
+  .pos4
+    left: $gal_width
+    opacity: 0
+
+.gallery
+  height: 621px
+  margin: 0 0 30px
+  img
+    width: 33%
+    -webkit-transition-duration: 1.2s
+  .pos0
+    left: 0
+    opacity: 0
+    left: -33%
+  .pos1
+    left: 0
+    opacity: 1
+  .pos2
+    left: 33.3%
+  .pos3
+    left: 66.6%
+    opacity: 1
+  .pos4
+    left: 99.9%
+    opacity: 0
+  .pos5
+    left: 99.9%
+    opacity: 0
 
 
 // users

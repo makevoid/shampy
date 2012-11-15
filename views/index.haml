@@ -1,38 +1,34 @@
-%article
-  %h1.first Tagline
 
 
-  %img.inpage.right{ src: "/img/gallery/4.png" }
+.gallery_simple
+  - photos_from("home/3x2").each_with_index do |photo, idx|
+    %img{ class: "pos#{idx}", src: "/img/home/3x2/#{photo}" }
 
-  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis pulvinar arcu nec accumsan.
-  %p In vel sapien in sem sagittis adipiscing. Donec rhoncus, elit a porta faucibus, purus erat consequat purus, id hendrerit elit leo eget nulla. Nunc dui sapien, fermentum quis mattis vel, elementum vitae neque. Mauris posuere urna at quam viverra ultricies. Phasellus sed congue sapien.
-  %p Aliquam erat volutpat. Phasellus tempus lorem nec orci imperdiet quis condimentum arcu consectetur. Nunc vel laoreet augue. Aenean quis tincidunt nisl. Phasellus vitae ipsum quam, sed vehicula dui. Quisque magna ipsum, malesuada nec fringilla a, vulputate non tellus. Duis consequat ipsum ut metus sodales at eleifend eros blandit. Nulla facilisi. Duis consequat ipsum ut metus sodales at eleifend eros blandit. Nulla facilisi. Duis consequat ipsum ut metus sodales at eleifend eros blandit. Nulla facilisi. Duis consequat ipsum ut metus sodales at eleifend eros blandit. Nulla facilisi.
-
-%article.features
-  %h1 Caratteristiche
-
-  %img.inpage{ src: "/img/gallery/5.png" }
-
-  %ul
-    %li 10 Foto d'autore al giorno
-    %li Numerose guide su tagli e acconciature moderne
-    %li Test e recensioni nuovi prodotti
-    %li Database Modelli
-    %li Solo 12 euro al mese!
-    %li Preview gratuita!
-
-  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis pulvinar arcu nec accumsan. In vel sapien in sem sagittis adipiscing. Donec rhoncus, elit a porta faucibus, purus erat consequat purus, id hendrerit elit leo eget nulla. Nunc dui sapien, fermentum quis mattis vel, elementum vitae neque. Mauris posuere urna at quam viverra ultricies. Phasellus sed congue sapien.
-  .clear
-
-%article
-  %h1 Tagline
-
-
-  %img.inpage.right{ src: "/img/gallery/6.png" }
-
-  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis pulvinar arcu nec accumsan. In vel sapien in sem sagittis adipiscing. Donec rhoncus, elit a porta faucibus, purus erat consequat purus, id hendrerit elit leo eget nulla. Nunc dui sapien, fermentum quis mattis vel, elementum vitae neque. Mauris posuere urna at quam viverra ultricies. Phasellus sed congue sapien. Aliquam erat volutpat. Phasellus tempus lorem nec orci imperdiet quis condimentum arcu consectetur. Nunc vel laoreet augue. Aenean quis tincidunt nisl. Phasellus vitae ipsum quam, sed vehicula dui. Quisque magna ipsum, malesuada nec fringilla a, vulputate non tellus. Duis consequat ipsum ut metus sodales at eleifend eros blandit. Nulla facilisi. Praesent varius, metus eget congue porttitor, mi orci euismod mauris, in posuere ipsum nibh ac ante. Proin fermentum metus vitae leo consectetur eget suscipit sem imperdiet.
+.column_right
+  %img{ src: "/img/home/2.png" }
+  %img{ src: "/img/home/3.png" }
 
 .clear
-%article.iscriviti
-  %h1
-    - link_to "Iscriviti", "javascript:void(0)", class: "btn"
+
+.boxes
+  %img{ src: "/img/home/1.png" }
+  %img{ src: "/img/home/2.png" }
+  %img{ src: "/img/home/3.png" }
+  %img{ src: "/img/home/1.png" }
+  .clear
+  %img{ src: "/img/home/2.png" }
+  %img{ src: "/img/home/3.png" }
+  %img{ src: "/img/home/1.png" }
+  %img{ src: "/img/home/2.png" }
+  .clear
+  %img{ src: "/img/home/3.png" }
+  %img{ src: "/img/home/2.png" }
+  %img{ src: "/img/home/1.png" }
+  %img{ src: "/img/home/3.png" }
+  .clear
+%img.full{ src: "/img/home/3x2/1.png" }
+.boxes
+  %img{ src: "/img/home/3.png" }
+  %img{ src: "/img/home/2.png" }
+  %img{ src: "/img/home/1.png" }
+  %img{ src: "/img/home/3.png" }

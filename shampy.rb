@@ -22,10 +22,14 @@ class Shampy < Sinatra::Base
     end
   end
 
-  before do
-    @photos = Dir.glob("#{PATH}/public/img/gallery/*.png").map do |photo|
+  def photos_from(path)
+    Dir.glob("#{PATH}/public/img/#{path}/*.png").map do |photo|
       File.basename photo
     end.shuffle
+  end
+
+  before do
+    @photos = photos_from "gallery"
   end
 
   # partial :comment, { comment: "blah" }

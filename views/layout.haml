@@ -2,7 +2,7 @@
   %head
     %title Shampy
     %link{ rel: "stylesheet", href: "/css/main.css" }
-  %body{  }
+  %body{ class: body_class }
     #container
       %nav.right
         - if logged_in?
@@ -34,10 +34,6 @@
           - link_to "Prodotti",   "/prodotti"
         - if admin?
           - link_to "Utenti",     "/users"
-
-      .gallery
-        - @photos.each_with_index do |photo, idx|
-          %img{ class: "pos#{idx}", src: "/img/gallery/#{photo}" }
 
       %section.content= yield
       %script{ type: "text/javascript", src: "/js/vendor/jquery.js" }
