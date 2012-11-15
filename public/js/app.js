@@ -4,7 +4,9 @@
   resize_gallery = function(element) {
     var height;
     height = $("." + element + " img:first").height();
-    return $("." + element).height(height);
+    if (height !== 0) {
+      return $("." + element).height(height);
+    }
   };
 
   resize_galleries = function() {

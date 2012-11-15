@@ -1,6 +1,6 @@
 resize_gallery = (element) ->
   height = $(".#{element} img:first").height()
-  $(".#{element}").height height
+  $(".#{element}").height height unless height == 0
 
 resize_galleries = ->
   galleries = ["gallery_two", "gallery_one", "gallery_simple", "gallery"]
