@@ -14,6 +14,15 @@
       galler = galleries[_i];
       resize_gallery(galler);
     }
+    setTimeout(function() {
+      var _j, _len1, _results;
+      _results = [];
+      for (_j = 0, _len1 = galleries.length; _j < _len1; _j++) {
+        galler = galleries[_j];
+        _results.push(resize_gallery(galler));
+      }
+      return _results;
+    }, 1000);
     return $(window).resize(function() {
       var _j, _len1, _results;
       _results = [];

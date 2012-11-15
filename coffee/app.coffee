@@ -8,6 +8,11 @@ resize_galleries = ->
   for galler in galleries
     resize_gallery galler
 
+  setTimeout -> # TODO: replace with jquery imagesloaded
+    for galler in galleries
+      resize_gallery galler
+  , 1000
+
   $(window).resize ->
     for galler in galleries
       resize_gallery galler
