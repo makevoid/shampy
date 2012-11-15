@@ -5,30 +5,38 @@
     %img{ class: "pos#{idx}", src: "/img/home/3x2/#{photo}" }
 
 .column_right
-  %img{ src: "/img/home/2.png" }
-  %img{ src: "/img/home/3.png" }
+  .gallery_one
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+  .gallery_one
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
 
 .clear
 
 .boxes
-  %img{ src: "/img/home/1.png" }
-  %img{ src: "/img/home/2.png" }
-  %img{ src: "/img/home/3.png" }
-  %img{ src: "/img/home/1.png" }
+  .gallery_two
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+  .gallery_two
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+  .gallery_two
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+  .gallery_two
+    - photos_from("home/1x1").each_with_index do |photo, idx|
+      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
   .clear
-  %img{ src: "/img/home/2.png" }
-  %img{ src: "/img/home/3.png" }
-  %img{ src: "/img/home/1.png" }
-  %img{ src: "/img/home/2.png" }
-  .clear
-  %img{ src: "/img/home/3.png" }
-  %img{ src: "/img/home/2.png" }
-  %img{ src: "/img/home/1.png" }
-  %img{ src: "/img/home/3.png" }
+
+  %img{ src: "/img/home/1x1/3.png" }
+  %img{ src: "/img/home/1x1/2.png" }
+  %img{ src: "/img/home/1x1/1.png" }
+  %img{ src: "/img/home/1x1/3.png" }
   .clear
 %img.full{ src: "/img/home/3x2/1.png" }
 .boxes
-  %img{ src: "/img/home/3.png" }
-  %img{ src: "/img/home/2.png" }
-  %img{ src: "/img/home/1.png" }
-  %img{ src: "/img/home/3.png" }
+  %img{ src: "/img/home/1x1/3.png" }
+  %img{ src: "/img/home/1x1/2.png" }
+  %img{ src: "/img/home/1x1/1.png" }
+  %img{ src: "/img/home/1x1/3.png" }

@@ -1,10 +1,28 @@
 (function() {
-  var gal, gal_simple, rand, resize_gallery;
+  var gal, gal_one, gal_simple, rand, resize_galleries, resize_gallery;
 
   resize_gallery = function(element) {
     var height;
     height = $("." + element + " img:first").height();
     return $("." + element).height(height);
+  };
+
+  resize_galleries = function() {
+    var galler, galleries, _i, _len;
+    galleries = ["gallery_two", "gallery_one", "gallery_simple", "gallery"];
+    for (_i = 0, _len = galleries.length; _i < _len; _i++) {
+      galler = galleries[_i];
+      resize_gallery(galler);
+    }
+    return $(window).resize(function() {
+      var _j, _len1, _results;
+      _results = [];
+      for (_j = 0, _len1 = galleries.length; _j < _len1; _j++) {
+        galler = galleries[_j];
+        _results.push(resize_gallery(galler));
+      }
+      return _results;
+    });
   };
 
   rand = function(num) {
@@ -18,6 +36,7 @@
     var classes;
     classes = ["flip", "slide"];
     return $(elem).on("click", function() {
+      return;
       elem = $(elem);
       if (elem.get(0).className) {
         return elem.removeClass();
@@ -26,6 +45,48 @@
       }
     });
   });
+
+  gal_one = {
+    element: null,
+    photos: []
+  };
+
+  window.gal_one = gal_one;
+
+  gal_one.photos_imgs = function() {
+    return $(this.element).find("img");
+  };
+
+  gal_one.assign_classes = function() {
+    $(this.photos[0]).addClass("pos0");
+    $(this.photos[1]).addClass("pos1");
+    $(this.photos[2]).addClass("pos2");
+    $(this.photos[3]).addClass("pos3");
+    return $(this.photos[4]).addClass("pos4");
+  };
+
+  gal_one.frame = function() {
+    var element,
+      _this = this;
+    this.photos_imgs().each(function(id, el) {
+      return $(el).removeClass();
+    });
+    element = this.photos.shift();
+    this.photos.push(element);
+    return this.assign_classes();
+  };
+
+  gal_one.animate_frame = function() {
+    var _this = this;
+    return setTimeout(function() {
+      _this.frame();
+      return _this.animate_frame();
+    }, 2000 + parseInt(Math.random() * 10) * 1000);
+  };
+
+  gal_one.animate = function() {
+    return this.animate_frame();
+  };
 
   gal_simple = {
     photos: []
@@ -68,15 +129,6 @@
     return this.animate_frame();
   };
 
-  $(function() {
-    gal_simple.photos = $.makeArray(gal_simple.photos_imgs());
-    gal_simple.animate();
-    resize_gallery("gallery_simple");
-    return $(window).resize(function() {
-      return resize_gallery("gallery_simple");
-    });
-  });
-
   gal = {
     photos: []
   };
@@ -118,12 +170,19 @@
   };
 
   $(function() {
+    var gal_ones, galleries;
+    galleries = [];
+    gal_ones = $(".gallery_one, .gallery_two").each(function(idx, gal) {
+      galleries[idx] = $.extend({}, gal_one);
+      galleries[idx].element = gal;
+      galleries[idx].photos = $.makeArray(galleries[idx].photos_imgs());
+      return galleries[idx].animate();
+    });
+    gal_simple.photos = $.makeArray(gal_simple.photos_imgs());
+    gal_simple.animate();
     gal.photos = $.makeArray(gal.photos_imgs());
     gal.animate();
-    resize_gallery("gallery");
-    return $(window).resize(function() {
-      return resize_gallery("gallery");
-    });
+    return resize_galleries();
   });
 
 }).call(this);

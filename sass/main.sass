@@ -172,16 +172,7 @@ input[type='submit']
 .content input[type='submit']
   margin: 10px 0 20px 0
 
-// gallery
 
-.gallery, .gallery_simple
-  width: 100%
-  position: relative
-  overflow: hidden
-  img
-    position: absolute
-    -webkit-transition-property: transform
-    -webkit-transition-timing-function: ease-in-out
 
 
 
@@ -206,14 +197,14 @@ $box_width2: $box_width*2 + $box_margin
   // webkit
   width: $box_width + $box_margin
   // firefox
-  width: $box_width
+  //width: $box_width
 
   img
     display: block
     width: 100%
-    padding: 0 0 $box_margin*4 $box_margin*4
+    margin: 0 0 $box_margin*4 $box_margin*4
 
-.home .boxes
+.boxes
   img
     width: $box_width
     float: left
@@ -233,15 +224,24 @@ $box_width2: $box_width*2 + $box_margin
     -moz-transform: rotateY(90deg)
     // translate3d(100px, 100px, 0)
   img.slide
-    -webkit-transform: translate3d(102.5%, 0, 0)
-    -moz-transform: translate(102.5%, 0)
+    -webkit-transform: translate3d(107%, 0, 0)
+    -moz-transform: translate(107%, 0)
+
+
+// gallery
 
 $gal_width: 100%
 
-.gallery_simple
-  height: 621px
-  margin: 0 0 1% 0
-  width: $box_width3
+.gallery, .gallery_one, .gallery_simple, .gallery_two
+  width: 100%
+  position: relative
+  overflow: hidden
+  img
+    position: absolute
+    -webkit-transition-property: transform
+    -webkit-transition-timing-function: ease-in-out
+
+.gallery_one, .gallery_simple, .gallery_two
   img
     width: $gal_width
     -webkit-transition-duration: 1.2s
@@ -261,6 +261,43 @@ $gal_width: 100%
   .pos4
     left: $gal_width
     opacity: 0
+
+$gal_width: 100% - $box_margin*4
+
+.gallery_one
+  margin: 0 0 $box_margin*4 $box_margin*4
+  height: 200px
+  width: $gal_width
+  img
+    width: $gal_width
+  .pos0
+    left: -$gal_width
+  .pos1
+    left: -$gal_width -$box_margin*8
+  .pos2
+    left: -$box_margin*4
+  .pos3
+    left: $gal_width
+  .pos4
+    left: $gal_width
+
+
+.boxes
+  .gallery_two
+    margin: 0 $box_margin $box_margin 0
+    height: 160px
+    float: left
+    width: $box_width
+    img
+      width: 100%
+  .gallery_two:nth-of-type(4n)
+    margin: 0 0 $box_margin 0
+
+.gallery_simple
+  height: 621px
+  margin: 0 0 $box_margin 0
+  width: $box_width3
+
 
 .gallery
   height: 621px
