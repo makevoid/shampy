@@ -2,20 +2,21 @@ resize_gallery = (element) ->
   height = $(".#{element} img:first").height()
   $(".#{element}").height height unless height == 0
 
-resize_galleries = ->
+resize_all_galleries = ->
   galleries = ["gallery_one_left", "gallery_two", "gallery_one", "gallery_simple", "gallery"]
 
   for galler in galleries
     resize_gallery galler
 
-  setTimeout -> # TODO: replace with jquery imagesloaded
-    for galler in galleries
-      resize_gallery galler
-  , 1000
+resize_galleries = ->
+  # TODO: replace with jquery imagesloaded
+  times = [100, 500, 1000, 1500, 3000, 5000, 10000]
+  for time in times
+    setTimeout ->
+      resize_all_galleries()
+    , time
 
-  $(window).resize ->
-    for galler in galleries
-      resize_gallery galler
+  $(window).resize -> resize_all_galleries()
 
 # home tiles
 

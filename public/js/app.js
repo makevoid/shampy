@@ -1,5 +1,5 @@
 (function() {
-  var gal, gal_one, gal_simple, rand, resize_galleries, resize_gallery;
+  var gal, gal_one, gal_simple, rand, resize_all_galleries, resize_galleries, resize_gallery;
 
   resize_gallery = function(element) {
     var height;
@@ -9,30 +9,28 @@
     }
   };
 
-  resize_galleries = function() {
-    var galler, galleries, _i, _len;
+  resize_all_galleries = function() {
+    var galler, galleries, _i, _len, _results;
     galleries = ["gallery_one_left", "gallery_two", "gallery_one", "gallery_simple", "gallery"];
+    _results = [];
     for (_i = 0, _len = galleries.length; _i < _len; _i++) {
       galler = galleries[_i];
-      resize_gallery(galler);
+      _results.push(resize_gallery(galler));
     }
-    setTimeout(function() {
-      var _j, _len1, _results;
-      _results = [];
-      for (_j = 0, _len1 = galleries.length; _j < _len1; _j++) {
-        galler = galleries[_j];
-        _results.push(resize_gallery(galler));
-      }
-      return _results;
-    }, 1000);
+    return _results;
+  };
+
+  resize_galleries = function() {
+    var time, times, _i, _len;
+    times = [100, 500, 1000, 1500, 3000, 5000, 10000];
+    for (_i = 0, _len = times.length; _i < _len; _i++) {
+      time = times[_i];
+      setTimeout(function() {
+        return resize_all_galleries();
+      }, time);
+    }
     return $(window).resize(function() {
-      var _j, _len1, _results;
-      _results = [];
-      for (_j = 0, _len1 = galleries.length; _j < _len1; _j++) {
-        galler = galleries[_j];
-        _results.push(resize_gallery(galler));
-      }
-      return _results;
+      return resize_all_galleries();
     });
   };
 
