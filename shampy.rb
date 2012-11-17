@@ -32,6 +32,12 @@ class Shampy < Sinatra::Base
     @photos = photos_from "gallery"
   end
 
+  def gallery_from(path)
+    photos_from(path).each_with_index do |photo, idx|
+      haml_tag :img, { class: "pos#{idx}", src: "/img/#{path}/#{photo}" }
+    end
+  end
+
   # partial :comment, { comment: "blah" }
   # partial :comment, comment
 

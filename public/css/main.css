@@ -175,36 +175,33 @@ input[type='submit'] {
 .boxes img {
   width: 23.75%;
   float: left;
-  margin: 0 1.66667% 1.66667% 0;
-  -webkit-transition-property: transform;
-  -webkit-transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-out;
-  -webkit-transform: rotateY(0deg) translate3d(0, 0, 0);
-  -moz-transition-property: all;
-  -moz-transition-duration: 1s;
-  -moz-transition-timing-function: ease-in-out;
-  -moz-transform: rotateY(0deg) translate(0, 0); }
+  margin: 0 1.66667% 1.66667% 0; }
 .boxes img:nth-of-type(4n) {
   margin: 0 0 1.66667% 0; }
-.boxes img.flip {
-  -webkit-transform: rotateY(90deg);
-  -moz-transform: rotateY(90deg); }
-.boxes img.slide {
-  -webkit-transform: translate3d(107%, 0, 0);
-  -moz-transform: translate(107%, 0); }
 
 .gallery, .gallery_one, .gallery_simple, .gallery_two, .gallery_one_left {
   width: 100%;
   position: relative;
   overflow: hidden; }
+  .gallery .caption, .gallery_one .caption, .gallery_simple .caption, .gallery_two .caption, .gallery_one_left .caption {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(180, 180, 180, 0.7);
+    z-index: 2;
+    padding: 2% 5% 0;
+    font-size: 1.2em;
+    font-family: Bebas; }
   .gallery img, .gallery_one img, .gallery_simple img, .gallery_two img, .gallery_one_left img {
     position: absolute;
-    -webkit-transition-property: transform;
-    -webkit-transition-timing-function: ease-in-out; }
+    -webkit-transition: all 1.2s ease-in-out, opacity 0.3s ease-in-out; }
+  .gallery img:hover, .gallery_one img:hover, .gallery_simple img:hover, .gallery_two img:hover, .gallery_one_left img:hover {
+    cursor: pointer;
+    opacity: 0.85; }
 
 .gallery_one img, .gallery_simple img, .gallery_two img, .gallery_one_left img {
   width: 100%;
-  -webkit-transition-duration: 1.2s;
   opacity: 0; }
 .gallery_one .pos0, .gallery_simple .pos0, .gallery_two .pos0, .gallery_one_left .pos0 {
   left: -100%;
@@ -265,8 +262,7 @@ input[type='submit'] {
   height: 621px;
   margin: 0 0 30px; }
   .gallery img {
-    width: 33%;
-    -webkit-transition-duration: 1.2s; }
+    width: 33%; }
   .gallery .pos0 {
     left: 0;
     opacity: 0;

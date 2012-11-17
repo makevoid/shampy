@@ -215,23 +215,22 @@ $box_width2: $box_width*2 + $box_margin
     width: $box_width
     float: left
     margin: 0 $box_margin $box_margin 0
-    -webkit-transition-property: transform
-    -webkit-transition-duration: 1s
-    -webkit-transition-timing-function: ease-in-out
-    -webkit-transform: rotateY(0deg) translate3d(0, 0, 0)
-    -moz-transition-property: all
-    -moz-transition-duration: 1s
-    -moz-transition-timing-function: ease-in-out
-    -moz-transform: rotateY(0deg) translate(0, 0)
+    // -webkit-transition-property: transform
+    // -webkit-transition-duration: 1s
+    // -webkit-transition-timing-function: ease-in-out
+    // -webkit-transform: rotateY(0deg) translate3d(0, 0, 0)
+    // -moz-transition-property: all
+    // -moz-transition-duration: 1s
+    // -moz-transition-timing-function: ease-in-out
+    // -moz-transform: rotateY(0deg) translate(0, 0)
   img:nth-of-type(4n)
     margin: 0 0 $box_margin 0
   img.flip
-    -webkit-transform: rotateY(90deg)
-    -moz-transform: rotateY(90deg)
-    // translate3d(100px, 100px, 0)
+    //-webkit-transform: rotateY(90deg)
+    //-moz-transform: rotateY(90deg)
   img.slide
-    -webkit-transform: translate3d(107%, 0, 0)
-    -moz-transform: translate(107%, 0)
+    //-webkit-transform: translate3d(107%, 0, 0)
+    //-moz-transform: translate(107%, 0)
 
 
 // gallery
@@ -242,15 +241,30 @@ $gal_width: 100%
   width: 100%
   position: relative
   overflow: hidden
+  .caption
+    width: 100%
+    position: absolute
+    left: 0
+    top: 0
+    background: rgba(180,180,180, 0.7)
+    z-index: 2
+    padding: 2% 5% 0
+    font-size: 1.2em
+    font-family: $fonts_titles
   img
     position: absolute
-    -webkit-transition-property: transform
-    -webkit-transition-timing-function: ease-in-out
+    -webkit-transition: all 1.2s ease-in-out, opacity 0.3s ease-in-out
+    // -webkit-transition-property: transform
+    // -webkit-transition-duration: 1.2s
+    // -webkit-transition-timing-function: ease-in-out
+  img:hover
+    cursor: pointer
+    opacity: 0.85
+
 
 .gallery_one, .gallery_simple, .gallery_two, .gallery_one_left
   img
     width: $gal_width
-    -webkit-transition-duration: 1.2s
     opacity: 0
   .pos0
     left: -$gal_width
@@ -316,7 +330,6 @@ $gal_width_margin: 100% - $box_margin*4
   margin: 0 0 30px
   img
     width: 33%
-    -webkit-transition-duration: 1.2s
   .pos0
     left: 0
     opacity: 0

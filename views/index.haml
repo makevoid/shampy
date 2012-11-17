@@ -1,38 +1,36 @@
 
 
 .gallery_simple
-  - photos_from("home/3x2").each_with_index do |photo, idx|
-    %img{ class: "pos#{idx}", src: "/img/home/3x2/#{photo}" }
+  - gallery_from "home/3x2"
 
 .column_right
   .gallery_one
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    .caption Archivio
+    - gallery_from "home/1x1"
   .gallery_one
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    - gallery_from "home/1x1"
 
 .clear
 
 .boxes
   .gallery_two
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    - gallery_from "home/1x1"
   .gallery_two
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    .caption Uomo
+    - gallery_from "home/1x1"
   .gallery_two
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    .caption Bambini
+    - gallery_from "home/1x1"
   .gallery_two
-    - photos_from("home/1x1").each_with_index do |photo, idx|
-      %img{ class: "pos#{idx}", src: "/img/home/1x1/#{photo}" }
+    .caption Sposa
+    - gallery_from "home/1x1"
   .clear
 
   .column_left
     .gallery_one_left
-      - photos_from("home/1x2").each_with_index do |photo, idx|
-        %img{ class: "pos#{idx}", src: "/img/home/1x2/#{photo}" }
+      .caption Donna
+      - gallery_from "home/1x2"
+
   %img{ src: "/img/home/1x1/2.png" }
   %img{ src: "/img/home/1x1/1.png" }
   %img{ src: "/img/home/1x1/3.png" }
