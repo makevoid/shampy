@@ -252,6 +252,8 @@ input[type='submit'] {
     width: 100%; }
 .boxes .gallery_two:nth-of-type(4n) {
   margin: 0 0 1.66667% 0; }
+.boxes .gallery_two.rightmost {
+  margin-right: 0; }
 
 .gallery_simple {
   height: 621px;

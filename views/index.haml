@@ -6,15 +6,16 @@
 .column_right
   .gallery_one
     .caption Archivio
-    - gallery_from "home/1x1"
-  .gallery_one
-    - gallery_from "home/1x1"
+    - gallery_from "home/1x2"
+
 
 .clear
 
 .boxes
-  .gallery_two
-    - gallery_from "home/1x1"
+  .column_left
+    .gallery_one_left
+      .caption Donna
+      - gallery_from "home/1x2"
   .gallery_two
     .caption Uomo
     - gallery_from "home/1x1"
@@ -24,20 +25,18 @@
   .gallery_two
     .caption Sposa
     - gallery_from "home/1x1"
-  .clear
+  .gallery_two
+    .caption Sposa
+    - gallery_from "home/1x1"
+  .gallery_two
+    .caption Sposa
+    - gallery_from "home/1x1"
+  .gallery_two.rightmost
+    .caption Sposa
+    - gallery_from "home/1x1"
 
-  .column_left
-    .gallery_one_left
-      .caption Donna
-      - gallery_from "home/1x2"
 
   %img{ src: "/img/home/1x1/2.png" }
   %img{ src: "/img/home/1x1/1.png" }
   %img{ src: "/img/home/1x1/3.png" }
   .clear
-%img.full{ src: "/img/home/3x2/1.png" }
-.boxes
-  %img{ src: "/img/home/1x1/3.png" }
-  %img{ src: "/img/home/1x1/2.png" }
-  %img{ src: "/img/home/1x1/1.png" }
-  %img{ src: "/img/home/1x1/3.png" }
