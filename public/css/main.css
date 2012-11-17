@@ -158,13 +158,19 @@ input[type='submit'] {
 .home .gallery_simple {
   float: left; }
 
+.home .column_right, .home .column_left {
+  float: left; }
+  .home .column_right img, .home .column_left img {
+    display: block;
+    width: 100%; }
 .home .column_right {
-  float: left;
   width: 25.41667%; }
   .home .column_right img {
-    display: block;
-    width: 100%;
     margin: 0 0 6.66667% 6.66667%; }
+.home .column_left {
+  width: 25.41667%; }
+  .home .column_left img {
+    margin: 0 6.66667% 6.66667% 0; }
 
 .boxes img {
   width: 23.75%;
@@ -187,32 +193,32 @@ input[type='submit'] {
   -webkit-transform: translate3d(107%, 0, 0);
   -moz-transform: translate(107%, 0); }
 
-.gallery, .gallery_one, .gallery_simple, .gallery_two {
+.gallery, .gallery_one, .gallery_simple, .gallery_two, .gallery_one_left {
   width: 100%;
   position: relative;
   overflow: hidden; }
-  .gallery img, .gallery_one img, .gallery_simple img, .gallery_two img {
+  .gallery img, .gallery_one img, .gallery_simple img, .gallery_two img, .gallery_one_left img {
     position: absolute;
     -webkit-transition-property: transform;
     -webkit-transition-timing-function: ease-in-out; }
 
-.gallery_one img, .gallery_simple img, .gallery_two img {
+.gallery_one img, .gallery_simple img, .gallery_two img, .gallery_one_left img {
   width: 100%;
   -webkit-transition-duration: 1.2s;
   opacity: 0; }
-.gallery_one .pos0, .gallery_simple .pos0, .gallery_two .pos0 {
+.gallery_one .pos0, .gallery_simple .pos0, .gallery_two .pos0, .gallery_one_left .pos0 {
   left: -100%;
   opacity: 0; }
-.gallery_one .pos1, .gallery_simple .pos1, .gallery_two .pos1 {
+.gallery_one .pos1, .gallery_simple .pos1, .gallery_two .pos1, .gallery_one_left .pos1 {
   left: -100%;
   opacity: 1; }
-.gallery_one .pos2, .gallery_simple .pos2, .gallery_two .pos2 {
+.gallery_one .pos2, .gallery_simple .pos2, .gallery_two .pos2, .gallery_one_left .pos2 {
   left: 0;
   opacity: 1; }
-.gallery_one .pos3, .gallery_simple .pos3, .gallery_two .pos3 {
+.gallery_one .pos3, .gallery_simple .pos3, .gallery_two .pos3, .gallery_one_left .pos3 {
   left: 100%;
   opacity: 0; }
-.gallery_one .pos4, .gallery_simple .pos4, .gallery_two .pos4 {
+.gallery_one .pos4, .gallery_simple .pos4, .gallery_two .pos4, .gallery_one_left .pos4 {
   left: 100%;
   opacity: 0; }
 
@@ -232,6 +238,13 @@ input[type='submit'] {
     left: 93.33333%; }
   .gallery_one .pos4 {
     left: 93.33333%; }
+
+.gallery_one_left {
+  height: 400px;
+  width: 93.33333%;
+  margin: 0; }
+  .gallery_one_left img {
+    margin: 0; }
 
 .boxes .gallery_two {
   margin: 0 1.66667% 1.66667% 0;

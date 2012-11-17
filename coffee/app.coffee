@@ -3,7 +3,7 @@ resize_gallery = (element) ->
   $(".#{element}").height height unless height == 0
 
 resize_galleries = ->
-  galleries = ["gallery_two", "gallery_one", "gallery_simple", "gallery"]
+  galleries = ["gallery_one_left", "gallery_two", "gallery_one", "gallery_simple", "gallery"]
 
   for galler in galleries
     resize_gallery galler
@@ -142,7 +142,7 @@ gal.animate = ->
 
 $ ->
   galleries = []
-  gal_ones = $(".gallery_one, .gallery_two").each (idx, gal) ->
+  gal_ones = $(".gallery_one_left, .gallery_one, .gallery_two").each (idx, gal) ->
     galleries[idx] = $.extend({}, gal_one)
     galleries[idx].element = gal
     galleries[idx].photos = $.makeArray galleries[idx].photos_imgs()

@@ -11,7 +11,7 @@
 
   resize_galleries = function() {
     var galler, galleries, _i, _len;
-    galleries = ["gallery_two", "gallery_one", "gallery_simple", "gallery"];
+    galleries = ["gallery_one_left", "gallery_two", "gallery_one", "gallery_simple", "gallery"];
     for (_i = 0, _len = galleries.length; _i < _len; _i++) {
       galler = galleries[_i];
       resize_gallery(galler);
@@ -183,7 +183,7 @@
   $(function() {
     var gal_ones, galleries;
     galleries = [];
-    gal_ones = $(".gallery_one, .gallery_two").each(function(idx, gal) {
+    gal_ones = $(".gallery_one_left, .gallery_one, .gallery_two").each(function(idx, gal) {
       galleries[idx] = $.extend({}, gal_one);
       galleries[idx].element = gal;
       galleries[idx].photos = $.makeArray(galleries[idx].photos_imgs());

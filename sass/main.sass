@@ -192,17 +192,23 @@ $box_width2: $box_width*2 + $box_margin
 .home .gallery_simple
   float: left
 
-.home .column_right
-  float: left
-  // webkit
-  width: $box_width + $box_margin
-  // firefox
-  //width: $box_width
-
-  img
-    display: block
-    width: 100%
-    margin: 0 0 $box_margin*4 $box_margin*4
+.home
+  .column_right, .column_left
+    float: left
+    img
+      display: block
+      width: 100%
+  .column_right
+    // webkit
+    width: $box_width + $box_margin
+    // firefox
+    //width: $box_width
+    img
+      margin: 0 0 $box_margin*4 $box_margin*4
+  .column_left
+    width: $box_width + $box_margin
+    img
+      margin: 0 $box_margin*4 $box_margin*4 0
 
 .boxes
   img
@@ -232,7 +238,7 @@ $box_width2: $box_width*2 + $box_margin
 
 $gal_width: 100%
 
-.gallery, .gallery_one, .gallery_simple, .gallery_two
+.gallery, .gallery_one, .gallery_simple, .gallery_two, .gallery_one_left
   width: 100%
   position: relative
   overflow: hidden
@@ -241,7 +247,7 @@ $gal_width: 100%
     -webkit-transition-property: transform
     -webkit-transition-timing-function: ease-in-out
 
-.gallery_one, .gallery_simple, .gallery_two
+.gallery_one, .gallery_simple, .gallery_two, .gallery_one_left
   img
     width: $gal_width
     -webkit-transition-duration: 1.2s
@@ -262,25 +268,31 @@ $gal_width: 100%
     left: $gal_width
     opacity: 0
 
-$gal_width: 100% - $box_margin*4
+$gal_width_margin: 100% - $box_margin*4
 
 .gallery_one
   margin: 0 0 $box_margin*4 $box_margin*4
   height: 200px
-  width: $gal_width
+  width: $gal_width_margin
   img
-    width: $gal_width
+    width: $gal_width_margin
   .pos0
-    left: -$gal_width
+    left: -$gal_width_margin
   .pos1
-    left: -$gal_width -$box_margin*8
+    left: -$gal_width_margin -$box_margin*8
   .pos2
     left: -$box_margin*4
   .pos3
-    left: $gal_width
+    left: $gal_width_margin
   .pos4
-    left: $gal_width
+    left: $gal_width_margin
 
+.gallery_one_left
+  height: 400px
+  width: $gal_width_margin
+  margin: 0
+  img
+    margin: 0
 
 .boxes
   .gallery_two
