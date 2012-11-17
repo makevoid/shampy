@@ -285,6 +285,32 @@ $gal_width: 100%
     left: $gal_width
     opacity: 0
 
+.gallery_two.reverse_slide
+  .pos0, .pos1
+    left: $gal_width
+  .pos3, .pos4
+    left: -$gal_width
+
+.gallery_two.slide_down
+  img
+    left: 0
+  .pos0, .pos1
+    top: $gal_width
+  .pos3, .pos4
+    top: -$gal_width
+
+.gallery_two.slide_up
+  img
+    left: 0
+  .pos0, .pos1
+    top: -$gal_width
+  .pos3, .pos4
+    top: $gal_width
+
+.gallery_two.flip
+  img
+    -webkit-transform: rotateY(90deg)
+
 $gal_width_margin: 100% - $box_margin*4
 
 .gallery_one
