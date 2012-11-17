@@ -16,7 +16,9 @@
           %a.btn{ href: "/register" } Registrati
       %header
         %h1
-          - link_to "Shampy", "/"
+          %img{ src: "/img/shampy_logo.png"}
+          /
+            - link_to "Shampy", "/"
       %nav.main
         - if admin? || !member?
           - link_to "Chi Siamo",  "/chi_siamo"

@@ -63,6 +63,9 @@ h1, nav.main {
 
 header h1 {
   font-size: 3.8em; }
+  header h1 img {
+    width: 30%;
+    max-width: 300px; }
 header input[type='submit'] {
   margin: 0; }
 
