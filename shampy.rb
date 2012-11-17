@@ -23,7 +23,7 @@ class Shampy < Sinatra::Base
   end
 
   def photos_from(path)
-    Dir.glob("#{PATH}/public/img/#{path}/*.png").map do |photo|
+    Dir.glob("#{PATH}/public/img/#{path}/*.{png,jpg}").map do |photo|
       File.basename photo
     end.shuffle
   end
