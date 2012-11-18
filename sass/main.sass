@@ -1,6 +1,6 @@
 //$main: #D00
 $main: #333
-$base: #f9d0cc
+$base: #FFCC00
 //$base: #d9c0ac
 $bg:  darken(saturate($base, 20%), 5%)
 $bg2: $base + #1A1A1A
@@ -65,6 +65,13 @@ h1, h2, h3, h4, h5, h6
 nav.main
   font-family: $fonts_titles
   font-size: 1.3em
+  background: black
+  padding: 0.6% 2% 0.5%
+  a
+    color: $bg
+  a:hover
+    background: $bg+#333
+    color: black
 
 h1, nav.main
   margin: 0 0 5px
@@ -251,7 +258,7 @@ $gal_width: 100%
     top: 0
     background: rgba(180,180,180, 0.7)
     z-index: 3
-    padding: 2% 5% 0
+    padding: 5px 5% 0
     font-size: 1.2em
     font-family: $fonts_titles
   img
