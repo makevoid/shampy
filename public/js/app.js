@@ -90,7 +90,7 @@
     return setTimeout(function() {
       _this.frame();
       return _this.animate_frame();
-    }, 2000 + parseInt(Math.random() * 10) * 1000);
+    }, 3000 + parseInt(Math.random() * 20) * 1000);
   };
 
   gal_one.animate = function() {

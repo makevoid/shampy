@@ -34,10 +34,6 @@ a:hover {
   color: #554444; }
 
 a.btn, nav.main a {
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
   font-weight: bold;
   font-size: 0.9em;
   padding: 6px 10px 2px;
