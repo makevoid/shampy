@@ -36,7 +36,7 @@ a:hover {
 a.btn, nav.main a {
   font-weight: bold;
   font-size: 0.9em;
-  padding: 6px 10px 2px;
+  padding: 0 4px 0;
   cursor: pointer; }
   a.btn:hover, nav.main a:hover {
     background: white;
