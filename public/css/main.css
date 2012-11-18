@@ -261,6 +261,13 @@ input[type='submit'] {
   .gallery_one_left img {
     margin: 0; }
 
+.static img, .static .pos0, .static .pos1, .static .pos2, .static .pos3, .static .pos4 {
+  left: 0;
+  opacity: 1; }
+
+.home .column_right .static img {
+  margin-left: 0; }
+
 .boxes .gallery_two {
   margin: 0 1.66667% 1.66667% 0;
   height: 160px;
