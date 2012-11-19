@@ -39,5 +39,9 @@
           - link_to "Utenti",     "/users"
 
       %section.content= yield
+
+      %footer.right
+        © #{Time.now.year} Shampy
+
       %script{ type: "text/javascript", src: "/js/vendor/jquery.js" }
       %script{ type: "text/javascript", src: "/js/app.js" }
