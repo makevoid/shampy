@@ -24,7 +24,7 @@
         - if admin? || !member?
           - link_to "Chi Siamo",  "/chi_siamo"
           - link_to "Offerta",    "/offerta"
-          - link_to "Mission",    "/mission"
+          - link_to "Filosofia",    "/filosofia"
           - link_to "Preview",    "/preview"
         -# member
         -# categorie: uomo, donna, bambino, sposa
@@ -40,7 +40,8 @@
 
       %section.content= yield
 
-      %footer.right
+      .clear
+      %footer
         © #{Time.now.year} Shampy
 
       %script{ type: "text/javascript", src: "/js/vendor/jquery.js" }

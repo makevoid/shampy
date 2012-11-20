@@ -13,6 +13,12 @@ $fonts_default: Aller, Verdana, Arial
 $fonts_titles: Bebas
 $fonts_navs: Dubiel
 
+// 4 boxes
+$box_width: 23.75%
+$box_margin: (100% - $box_width*4) / 3
+$box_width3: $box_width*3 + $box_margin*2
+$box_width2: $box_width*2 + $box_margin
+
 @font-face
   font-family: Aller
   src: url(/fonts/aller.ttf)
@@ -74,7 +80,7 @@ nav.main
     color: black
 
 h1, nav.main
-  margin: 0 0 5px
+  margin: 0 0 $box_margin
 
 .content h1
   font-size: 1.9em
@@ -104,7 +110,7 @@ header
 
 #container
   width: 92%
-  margin: 2% auto 5%
+  margin: 1% auto 5%
   max-width: 1200px
 
 .content ul li
@@ -182,17 +188,19 @@ input[type='submit']
 .content input[type='submit']
   margin: 10px 0 20px 0
 
-
+footer
+  text-align: right
+  font-family: $fonts_titles
+  font-size: 1.3em
+  color: $bg
+  background: black
+  padding: 0.6% 2% 0.5%
 
 
 
 // home
 
-// 4 boxes
-$box_width: 23.75%
-$box_margin: (100% - $box_width*4) / 3
-$box_width3: $box_width*3 + $box_margin*2
-$box_width2: $box_width*2 + $box_margin
+// $ boxes
 
 .home img.full
   width: 100%
@@ -256,7 +264,7 @@ $gal_width: 100%
     position: absolute
     left: 0
     top: 0
-    background: rgba(180,180,180, 0.7)
+    background: rgba(200, 200, 200, 0.8)
     z-index: 3
     padding: 5px 5% 0
     font-size: 1.2em

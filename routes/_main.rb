@@ -12,8 +12,8 @@ class Shampy < Sinatra::Base
     haml :offerta
   end
 
-  get "/mission" do
-    haml :mission
+  get "/filosofia" do
+    haml :filosofia
   end
 
   get "/preview" do
