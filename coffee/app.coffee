@@ -66,7 +66,7 @@ gal_one.animate_frame = ->
   setTimeout =>
     this.frame()
     this.animate_frame()
-  , 3000+parseInt(Math.random()*20)*1000
+  , 2000+parseInt(Math.random()*13)*1000
 
 gal_one.animate = ->
   this.animate_frame()
