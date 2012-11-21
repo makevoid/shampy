@@ -45,6 +45,7 @@ class Shampy < Sinatra::Base
   end
 
   get "/prodotti" do
+    @products = Product.all
     haml :prodotti
   end
 

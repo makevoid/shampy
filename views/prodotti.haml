@@ -1,9 +1,13 @@
 %h1 Prodotti
 
-%p Recensioni prodotti
+%h1 Recensioni prodotti
 
-
-
+- @products.each do |product|
+  %p= product[:name]
+  %p= product[:company]
+  %img{ src: "/img/products/#{product[:image]}" }
+  %p= product[:text]
+  %p &nbsp;
 
 %p Note:
 
