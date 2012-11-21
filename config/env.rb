@@ -25,3 +25,5 @@ require_all "#{path}/models"
 require "#{path}/config/sinatra_exts.rb"
 
 DataMapper.finalize
+
+require "#{path}/lib/saf/products.saf"
