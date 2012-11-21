@@ -1,5 +1,6 @@
 name: Deep Moisture - Shampoo
 company: Kandus Professional
+image: deep_moisture_shampoo.jpg
 text>
 Tipologia di capelli
 Capelli normali e secchi, alterati da agenti atmosferici e calore.
@@ -17,11 +18,7 @@ Massaggiare su capelli bagnati. Quindi risciacquare.
 ---
 name: Deep Moisture - Crema
 company: Kandus Professional
+image: deep_moisture_crema.jpg
 text>
-Testo di prova...
----
-name: Deep Moisture - Crema
-company: Kandus Professional
-text>
-Testo di prova...
+testotesto
 ---
