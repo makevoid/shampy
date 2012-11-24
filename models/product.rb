@@ -1,7 +1,7 @@
 class Product
-  ALL = SimpleArticleFormat.load "#{PATH}/saf/products.saf"
+  # ALL = SimpleArticleFormat.load "#{PATH}/saf/products.saf"
 
   def self.all
-    ALL
+    SimpleArticleFormat.load "#{PATH}/saf/products.saf"
   end
 end
