@@ -15,12 +15,14 @@ Miele ed estratto di mango.
 Aiuta ad idratare i capelli secchi donando loro morbidezza, luminosità e pettinabilità.
 
 Massaggiare su capelli bagnati. Quindi risciacquare.
+<
 ---
 name: Deep Moisture - Prova
 company: Kandus Professional
 image: deep_moisture_crema.jpg
 text>
 testotesto
+<
 ---
 name: Impressive Volume
 company: Kandus Professional
@@ -28,6 +30,7 @@ image: impressione_volume_verde.jpg
 text>
 I capelli deboli sono sensibili all'usura di tutti i giorni. Mancano di forza e tenuta, dunque sono difficili da acconciare. È arduo mantenerli corposi e voluminosi evitando che tornino cascanti.
 Con la linea Impressive Volume puoi ottenere immediatamente corpo e volume rendendo i capelli più pieni e corposi al tatto e allo sguardo rispetto a prima
+<
 ---
 name: Impressive Volume
 company: Kandus Professional
@@ -35,4 +38,5 @@ image: impressione_volume_verde.jpg
 text>
 I capelli deboli sono sensibili all'usura di tutti i giorni. Mancano di forza e tenuta, dunque sono difficili da acconciare. È arduo mantenerli corposi e voluminosi evitando che tornino cascanti.
 Con la linea Impressive Volume puoi ottenere immediatamente corpo e volume rendendo i capelli più pieni e corposi al tatto e allo sguardo rispetto a prima
+<
 ---

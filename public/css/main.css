@@ -333,6 +333,27 @@ footer {
     left: 99.9%;
     opacity: 0; }
 
+.products {
+  margin: 10px 0 20px; }
+
+.product {
+  margin: 3px 0 15px; }
+  .product h1 {
+    font-size: 1.5em;
+    margin: 0 0 3px; }
+  .product img {
+    float: left;
+    margin: 0 1.2% 0 0; }
+  .product .company {
+    margin: 0 0 5px;
+    font-family: Bebas; }
+  .product .text {
+    font-size: 0.95em; }
+
+.product:nth-of-type(2n) img {
+  float: right;
+  margin: 0 0 0 1.2%; }
+
 .user {
   margin: 0 0 10px 0;
   background: rgba(255, 255, 255, 0.9);
