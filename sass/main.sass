@@ -1,6 +1,7 @@
 //$main: #D00
 $main: #333
-$base: #FFDB58
+$base: #fff // #FFDB58
+$bg_two: #ddd
 //$base: #d9c0ac
 $bg:  darken(saturate($base, 20%), 5%)
 $bg2: $base + #1A1A1A
@@ -47,7 +48,7 @@ ul
 body
   background: $base
   // background: url(/images/d3c.png) no-repeat $bg
-  +gradient(#FFDB58, #FFEFD5)
+  +gradient($base, $bg_two)
   background-size: 100%
   font-family: $fonts_default
   color: $text

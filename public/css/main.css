@@ -22,14 +22,14 @@ ul {
   box-sizing: border-box; }
 
 body {
-  background: #ffdb58;
-  background: #ffdb58;
-  background: linear-gradient(top, #ffdb58, papayawhip);
-  background: -o-linear-gradient(top, #ffdb58, papayawhip);
-  background: -moz-linear-gradient(top, #ffdb58, papayawhip);
-  background: -webkit-linear-gradient(top, #ffdb58, papayawhip);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #ffdb58), color-stop(0, papayawhip));
-  background: -ms-linear-gradient(top, #ffdb58, papayawhip);
+  background: white;
+  background: white;
+  background: linear-gradient(top, white, #dddddd);
+  background: -o-linear-gradient(top, white, #dddddd);
+  background: -moz-linear-gradient(top, white, #dddddd);
+  background: -webkit-linear-gradient(top, white, #dddddd);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, white), color-stop(0, #dddddd));
+  background: -ms-linear-gradient(top, white, #dddddd);
   background-size: 100%;
   font-family: Aller, Verdana, Arial;
   color: #333333; }
@@ -59,9 +59,9 @@ nav.main {
   background: black;
   padding: 0.6% 2% 0.5%; }
   nav.main a {
-    color: #ffd63f; }
+    color: #f5f0f0; }
   nav.main a:hover {
-    background: #ffff72;
+    background: white;
     color: black; }
 
 h1, nav.main {
@@ -167,7 +167,7 @@ footer {
   text-align: right;
   font-family: Bebas;
   font-size: 1.3em;
-  color: #ffd63f;
+  color: #f5f0f0;
   background: black;
   padding: 0.6% 2% 0.5%;
   margin: 2% 0 0 0; }
