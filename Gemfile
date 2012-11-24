@@ -13,6 +13,8 @@ gem "dm-types"
 gem "haml"
 gem "sass"
 
+gem "RedCloth"
+
 group :development do
   gem "foreman"
   gem "rerun"

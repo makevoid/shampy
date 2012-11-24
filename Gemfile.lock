@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     addressable (2.2.8)
     bcrypt-ruby (3.0.1)
     coderay (1.0.8)
@@ -90,6 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   dm-core
   dm-migrations
   dm-mysql-adapter

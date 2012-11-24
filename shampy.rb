@@ -12,6 +12,9 @@ class Shampy < Sinatra::Base
   require "#{@@path}/lib/form_helpers"
   include FormHelpers
 
+  require "#{@@path}/lib/markup_utils.rb"
+  include MarkupUtils
+
   configure :development do
     before do
       unless defined?(@@session_set)
