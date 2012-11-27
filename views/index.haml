@@ -14,20 +14,25 @@
 .boxes
   .column_left
     .gallery_one_left
-      .caption Foto Donna
-      - gallery_from "home/1x2"
+      %a{ href: "/foto_tagli/donna" }
+        .caption Foto Donna
+        - gallery_from "home/1x2"
   .gallery_two.reverse_slide
-    .caption Foto Uomo
-    - gallery_from "home/1x1_uomo"
+    %a{ href: "/foto_tagli/uomo" }
+      .caption Foto Uomo
+      - gallery_from "home/1x1_uomo"
   .gallery_two.slide_down
-    .caption Foto Bambini
-    - gallery_from "home/1x1_bambini"
+    %a{ href: "/foto_tagli/bambino" }
+      .caption Foto Bambini
+      - gallery_from "home/1x1_bambini"
   .gallery_two.rightmost
-    .caption Step by step
-    - gallery_from "home/1x1_step"
+    %a{ href: "/step_by_step" }
+      .caption Step by step
+      - gallery_from "home/1x1_step"
   .gallery_two.slide_up
-    .caption Foto Sposa
-    - gallery_from "home/1x1_sposa"
+    %a{ href: "/foto_tagli/sposa" }
+      .caption Foto Sposa
+      - gallery_from "home/1x1_sposa"
   .gallery_two.two.rightmost.reverse_slide
     .caption Mondo
     - gallery_from "home/2x1_mondo"

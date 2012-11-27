@@ -30,7 +30,7 @@
             - link_to "Prodotti",   "/prodotti"
             - link_to "Lezioni",    "/lezioni"
             - link_to "Norme",      "/norme"
-          - if !admin? &&member?
+          - if  admin? || !member?
             - link_to "Offerta",      "/offerta"
           - link_to "Chi Siamo",    "/chi_siamo"
           -# categorie: uomo, donna, bambino, sposa
