@@ -1,24 +1,21 @@
-%h1 Prodotti
-
 %h1 Recensioni prodotti
 
-- @products.each do |product|
-  .product
-    %h1= product[:name]
-    .company= product[:company]
-    .text
-    
-      
-      %img{ src: "/img/products/#{product[:image]}" }
-      = product[:text]
-    .clear
-    
-%p Note:
+.column_left
+  - @products.evens.each do |product|
+    = partial :product, product
 
-%p descrizione
-%p prezzi
-%p voto
-%p contatti reseller
-%p azienda produttrice con relativi e contatti
-%p nota: servira' per gli sponsor che ci pagheranno per pubblicizzare i loro prodotti
+.column_right
+  - @products.odds.each do |product|
+    = partial :product, product
+
+.clear
+
+-# Note:
+-# 
+-# descrizione
+-# prezzi
+-# voto
+-# contatti reseller
+-# azienda produttrice con relativi e contatti
+-# nota: servira' per gli sponsor che ci pagheranno per pubblicizzare i loro prodotti
 

@@ -50,7 +50,7 @@ a.btn, nav.main a {
     color: #333333; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Dubiel;
+  font-family: Bebas;
   font-weight: normal; }
 
 nav.main {
@@ -336,10 +336,16 @@ footer {
     left: 99.9%;
     opacity: 0; }
 
-.products {
-  margin: 10px 0 20px; }
+.prodotti .column_left, .prodotti .column_right {
+  float: left; }
+.prodotti .column_left {
+  width: 49.16667%;
+  margin: 0 1.66667% 0 0; }
+.prodotti .column_right {
+  width: 47.5%; }
 
 .product {
+  min-height: 280px;
   margin: 3px 0 15px; }
   .product h1 {
     font-size: 1.5em;

@@ -65,6 +65,16 @@ class Shampy < Sinatra::Base
 
 end
 
+class Array
+  def evens
+    select.each_with_index { |item, i| i.even? }
+  end
+
+  def odds
+    select.each_with_index { |item, i| i.odd? }
+  end
+end
+
 require_all "#{path}/routes"
 
 LOAD_MODULES_ROUTES.call
