@@ -16,6 +16,20 @@ class Shampy < Sinatra::Base
     haml :lezioni
   end
 
+  # lezioni
+
+  get "/lezioni/colore" do
+    haml :"lezioni/colore"
+  end
+
+  get "/lezioni/massaggi" do
+    haml :"lezioni/massaggi"
+  end
+
+  get "/lezioni/storia" do
+    haml :"lezioni/storia"
+  end
+
   get "/preview" do
     haml :preview
   end
