@@ -30,10 +30,6 @@ class Shampy < Sinatra::Base
     haml :"lezioni/storia"
   end
 
-  get "/preview" do
-    haml :preview
-  end
-
   # member
 
   get "/foto" do
