@@ -1,6 +1,6 @@
 class Shampy < Sinatra::Base
 
-  enable :sessions
+  #enable :sessions
   use Rack::Session::Cookie
 
 
