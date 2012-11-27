@@ -282,7 +282,7 @@ Spray 125 ml
 ---
 name: b Klorane Shampoo
 company: Klorane Anticaduta
-image: b_klorane_shampoo.jpg
+image: b_klorane_shampoo.png
 text>
 Azione
 L’estratto di china KLORANE e le vitamine del gruppo B contenuti in una base lavante molto delicata, districante e volumizzante, fanno dello Shampoo fortificante alla chinina e alle vitamine B KLORANE una vera e propria fonte di energia, che ridona tonicità ai capelli indeboliti. Stimola il bulbo pilifero per favorire la fisiologica crescita di capelli forti. Ipoallergenico* (*elaborato per minimizzare i rischi di reazioni allergiche).
@@ -298,7 +298,7 @@ Flacone da 200ml e 400ml
 ---
 name: Balsamo Klorane
 company: Klorane Anticaduta
-image: Balsamo_Klorane.jpg
+image: Balsamo_Klorane.png
 text>
 Azione
 Tonificante e districante, il balsamo dopo shampoo alla chinina e alle vitamine B fortificante e districante KLORANE ha un’azione energizzante e rivitalizzante. Prolunga l’effetto dello Shampoo ricostituente alla chinina e alle vitamine B KLORANE e aiuta i capelli a ritrovare forza, tono e luminosità. La sua formula contiene una sostanza emolliente con alto potere districante, per migliorare la pettinabilità. Ipoallergenico*. *Testato per minimizzare i rischi di reazioni allergiche.
@@ -312,7 +312,7 @@ Tubo da 150ml
 ---
 name: Lozione Struccante Al Fiordaliso
 company: Klorane occhi
-image: Struccante_Klorane.jpg
+image: Struccante_Klorane.png
 text>
 Azione
 Ricca di acqua di fiordaliso, lenitiva e decongestionante, questa lozione rimuove facilmente il trucco. Molto delicata, con un pH identico a quello delle lacrime, è perfettamente tollerata dagli occhi sensibili, anche quando si portano le lenti a contatto. Testata sotto controllo oftalmologico.
@@ -333,7 +333,7 @@ Intensa e brillante, la colorazione valorizza i tuoi capelli  donando loro bril
 ---
 name: crema balsamo
 company: Klorane capelli
-image: crema_balsamo.jpg
+image: crema_balsamo.png
 text>
 CREMA-BALSAMO AL MELOGRANO AD AZIONE FISSANTE, DISTRICANTE
 COLORATI
@@ -350,7 +350,7 @@ Formato
 ---
 name: trattamento klorane
 company: Klorane capelli
-image: trattamento_klorane.jpg
+image: trattamento_klorane.png
 text>
 TRATTAMENTO SENZA RISCIACQUO AL MELOGRANO
 COLORATI
@@ -366,7 +366,7 @@ Formato
 ---
 name: Shampoo ad azione fissante
 company: Klorane capelli
-image: Shampoo_ad_azione_fissante.jpg
+image: Shampoo_ad_azione_fissante.png
 text>
 SHAMPOO AL MELOGRANO AD AZIONE FISSANTE, PROLUNGA IL COLORE
 COLORATI
@@ -376,3 +376,4 @@ Applicazione
 È sufficiente una sola applicazione. Sciacquare abbondantemente. In caso di contatto con gli occhi, sciacquare abbondantemente.
 Formato
 Flacone da 200ml Flacone da 400 ml
+<
