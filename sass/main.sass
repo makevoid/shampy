@@ -425,24 +425,30 @@ $gal_width_margin: 100% - $box_margin*4
   .column_right
     width: $box_width2s
 
-.product
-  min-height: 280px
-  margin: 3px 0 15px
-  h1
-    font-size: 1.5em
-    margin: 0 0 3px
-  img
-    float: left
-    margin: 0 1.2% 0 0
-  .company
-    margin: 0 0 5px
-    font-family: $fonts_titles
-  .text
-    font-size: 0.95em
-.product:nth-of-type(2n)
-  img
-    float: right
-    margin: 0 0 0 1.2%
+  .product
+    min-height: 280px
+    margin: 3px 0 15px
+    h1
+      font-size: 1.5em
+      margin: 0 0 3px
+    .img_box
+      float: left
+      margin: 0 1.2% 0 0
+      min-width: 140px
+      background: #fff
+      padding: 5px 0
+    img
+      display: block
+      margin: 0 auto
+    .company
+      margin: 0 0 5px
+      font-family: $fonts_titles
+    .text
+      font-size: 0.95em
+  // .product:nth-of-type(2n) img
+  //   float: right
+  //   margin: 0 0 0 1.2%
+
 
 
 // users

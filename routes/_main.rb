@@ -33,7 +33,7 @@ class Shampy < Sinatra::Base
   # member
 
   get "/foto_tagli" do
-    haml :foto_tagli
+    haml :foto
   end
 
   get "/foto_tagli/:type" do |type|
@@ -43,13 +43,19 @@ class Shampy < Sinatra::Base
   end
 
   get "/step_by_step" do
-    haml :step_by_step
+    haml :steps
   end
 
   get "/step_by_step/:type" do |type|
     @type = type
     halt 404, "Not found" unless Type.all.include? type
     haml :step_type
+  end
+
+  get "/step_by_step/:type/1" do |type|
+    @type = :donna
+    @title = "Taglio Lungo con Meshes"
+    haml :step
   end
 
   get "/norme" do

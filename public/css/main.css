@@ -343,25 +343,26 @@ footer {
   margin: 0 1.66667% 0 0; }
 .prodotti .column_right {
   width: 47.5%; }
-
-.product {
+.prodotti .product {
   min-height: 280px;
   margin: 3px 0 15px; }
-  .product h1 {
+  .prodotti .product h1 {
     font-size: 1.5em;
     margin: 0 0 3px; }
-  .product img {
+  .prodotti .product .img_box {
     float: left;
-    margin: 0 1.2% 0 0; }
-  .product .company {
+    margin: 0 1.2% 0 0;
+    min-width: 140px;
+    background: white;
+    padding: 5px 0; }
+  .prodotti .product img {
+    display: block;
+    margin: 0 auto; }
+  .prodotti .product .company {
     margin: 0 0 5px;
     font-family: Bebas; }
-  .product .text {
+  .prodotti .product .text {
     font-size: 0.95em; }
-
-.product:nth-of-type(2n) img {
-  float: right;
-  margin: 0 0 0 1.2%; }
 
 .user {
   margin: 0 0 10px 0;
