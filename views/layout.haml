@@ -22,17 +22,18 @@
             - link_to "Shampy", "/"
       %nav.main
         - if admin? || !member?
-          - link_to "Chi Siamo",  "/chi_siamo"
-          - link_to "Offerta",    "/offerta"
-          - link_to "Lezioni",    "/lezioni"
+          - link_to "Foto Tagli",   "/foto_tagli"
+          - link_to "Step by Step", "/step_by_step"
+          - if member?
+            -# sottocategorie: stilisti (Sesler, Anthony Jhon)
+            - link_to "Modelli",    "/modelli"
+            - link_to "Prodotti",   "/prodotti"
+            - link_to "Lezioni",    "/lezioni"
+            - link_to "Norme",      "/norme"
+          - if !admin? &&member?
+            - link_to "Offerta",      "/offerta"
+          - link_to "Chi Siamo",    "/chi_siamo"
           -# categorie: uomo, donna, bambino, sposa
-          - link_to "Foto",       "/foto"
-          - link_to "Tagli",      "/tagli"
-        - if member?
-          -# sottocategorie: stilisti (Sesler, Anthony Jhon)
-          - link_to "Norme",      "/norme"
-          - link_to "Modelli",    "/modelli"
-          - link_to "Prodotti",   "/prodotti"
         - if admin?
           - link_to "Utenti",     "/users"
 

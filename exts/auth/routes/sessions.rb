@@ -1,8 +1,6 @@
 class Shampy < Sinatra::Base
 
-  #enable :sessions
   use Rack::Session::Cookie, secret: "antanisblinda_comeseffosse"
-
 
   def login_required
     redirect "/login" unless current_user
