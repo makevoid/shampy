@@ -366,14 +366,17 @@ footer {
 
 .photo_gallery {
   position: relative;
-  overflow: hidden;
-  height: 400px; }
-  .photo_gallery img {
-    width: 100%;
+  overflow: hidden; }
+  .photo_gallery .box {
     position: absolute;
+    width: 100%;
     -webkit-transition: -webkit-transform 0.7s ease-in-out;
     -webkit-transform: translate3d(-100%, 0, 0);
     display: none; }
+  .photo_gallery img {
+    width: 100%;
+    margin: 0 auto;
+    display: block; }
   .photo_gallery .pos0, .photo_gallery .pos1, .photo_gallery .pos2 {
     display: block; }
   .photo_gallery .pos1 {

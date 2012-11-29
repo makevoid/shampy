@@ -454,13 +454,16 @@ $gal_width_margin: 100% - $box_margin*4
 .photo_gallery
   position: relative
   overflow: hidden
-  height: 400px
-  img
-    width: 100%
+  .box
     position: absolute
+    width: 100%
     -webkit-transition: -webkit-transform 0.7s ease-in-out
     -webkit-transform: translate3d(-100%, 0, 0)
     display: none
+  img
+    width: 100%
+    margin: 0 auto
+    display: block
   .pos0, .pos1, .pos2
     display: block
   .pos0

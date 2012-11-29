@@ -7,4 +7,5 @@
   - @photos = @photos.shuffle
   - size = @photos.size
   - @photos[0..size].each_with_index do |photo, idx|
-    %img{ src: photo.path, class: "pos#{size-idx}" }
+    .box{ class: "pos#{size-idx}" }
+      %img{ src: photo.path }

@@ -203,7 +203,15 @@
   };
 
   phogal.resize_once = function() {
-    return this.elem().height(this.elem().find("img").height());
+    var _this = this;
+    return this.elem().find("img").each(function(idx, elem) {
+      var max_height, proportion, width;
+      elem = $(elem);
+      max_height = _this.elem().height();
+      proportion = elem.width() / elem.height();
+      width = proportion * max_height;
+      return elem.width(width);
+    });
   };
 
   phogal.animate = function() {
@@ -216,11 +224,11 @@
 
   phogal.animate_once = function() {
     var images, prev, prev_copy, size;
-    prev = this.elem().find("img:last");
+    prev = this.elem().find(".box:last");
     prev_copy = prev.clone();
     prev.remove();
     this.elem().prepend(prev_copy);
-    images = this.elem().find("img");
+    images = this.elem().find(".box");
     size = images.length;
     return images.each(function(idx, elem) {
       elem = $(elem);

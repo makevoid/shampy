@@ -161,7 +161,14 @@ phogal.resize = ->
       this.resize_once()
 
 phogal.resize_once = ->
-  this.elem().height this.elem().find("img").height()
+  this.elem().find("img").each (idx, elem) =>
+    elem = $(elem)
+    max_height = this.elem().height()
+    proportion = elem.width() / elem.height()
+    width = proportion * max_height
+    elem.width width
+
+  # this.elem().height this.elem().find("img").height()
 
 
 phogal.animate = ->
@@ -171,12 +178,12 @@ phogal.animate = ->
   , phogal.anim_time
 
 phogal.animate_once = ->
-  prev = this.elem().find("img:last")
+  prev = this.elem().find(".box:last")
   prev_copy = prev.clone()
   prev.remove()
   this.elem().prepend prev_copy # or prepend?
 
-  images = this.elem().find("img")
+  images = this.elem().find(".box")
   size = images.length
   images.each (idx, elem) ->
     elem = $(elem)
