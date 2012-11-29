@@ -141,7 +141,56 @@ gal.animate = ->
   gal.animate_frame()
 
 
+# foto_type .photo_gallery
+
+phogal = {}
+
+phogal.init = (selector) ->
+  this.selector = selector
+
+phogal.elem = ->
+  $(phogal.selector)
+
+phogal.anim_time = 4000
+phogal.anim_time = 2000 # testing
+
+phogal.resize = ->
+  this.elem().find("img").imagesLoaded =>
+    this.resize_once()
+    $(window).on "resize", =>
+      this.resize_once()
+
+phogal.resize_once = ->
+  this.elem().height this.elem().find("img").height()
+
+
+phogal.animate = ->
+  setTimeout =>
+    phogal.animate_once()
+    phogal.animate()
+  , phogal.anim_time
+
+phogal.animate_once = ->
+  prev = this.elem().find("img:last")
+  prev_copy = prev.clone()
+  prev.remove()
+  this.elem().prepend prev_copy # or prepend?
+
+  images = this.elem().find("img")
+  size = images.length
+  images.each (idx, elem) ->
+    elem = $(elem)
+    elem.removeClass()
+    elem.addClass "pos#{size-idx-1}"
+
+
 $ ->
+
+  phogal.init ".photo_gallery"
+  phogal.resize()
+  phogal.animate()
+
+
   galleries = []
   gal_ones = $(".gallery_one_left, .gallery_one, .gallery_two").each (idx, gal) ->
     galleries[idx] = $.extend({}, gal_one)

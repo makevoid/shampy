@@ -3,4 +3,8 @@
   %span= @type.capitalize
 
 
-%p gallery
+.photo_gallery
+  - @photos = @photos.shuffle
+  - size = @photos.size
+  - @photos[0..size].each_with_index do |photo, idx|
+    %img{ src: photo.path, class: "pos#{size-idx}" }

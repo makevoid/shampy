@@ -39,6 +39,7 @@ class Shampy < Sinatra::Base
   get "/foto_tagli/:type" do |type|
     @type = type
     halt 404, "Not found" unless Type.all.include? type
+    @photos = Photo.all @type
     haml :foto_type
   end
 
