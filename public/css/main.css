@@ -22,14 +22,14 @@ ul {
   box-sizing: border-box; }
 
 body {
-  background: #ffff8b;
-  background: #ffff8b;
-  background: linear-gradient(top, #ffff8b, #ffff8b);
-  background: -o-linear-gradient(top, #ffff8b, #ffff8b);
-  background: -moz-linear-gradient(top, #ffff8b, #ffff8b);
-  background: -webkit-linear-gradient(top, #ffff8b, #ffff8b);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #ffff8b), color-stop(0, #ffff8b));
-  background: -ms-linear-gradient(top, #ffff8b, #ffff8b);
+  background: #fbce72;
+  background: #fbce72;
+  background: linear-gradient(top, #fbce72, #fbce72);
+  background: -o-linear-gradient(top, #fbce72, #fbce72);
+  background: -moz-linear-gradient(top, #fbce72, #fbce72);
+  background: -webkit-linear-gradient(top, #fbce72, #fbce72);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #fbce72), color-stop(0, #fbce72));
+  background: -ms-linear-gradient(top, #fbce72, #fbce72);
   background-size: 100%;
   font-family: Aller, Verdana, Arial;
   color: #333333; }
