@@ -4,8 +4,10 @@
 
 
 .photo_gallery
-  - @photos = @photos.shuffle
+  - @photos.shuffle!
   - size = @photos.size
+  - size = 4
   - @photos[0..size].each_with_index do |photo, idx|
-    .box{ class: "pos#{size-idx}" }
+    - val = idx - size
+    %div{ class: "pos#{size-idx}" }
       %img{ src: photo.path }

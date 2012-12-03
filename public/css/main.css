@@ -23,13 +23,6 @@ ul {
 
 body {
   background: #fbce72;
-  background: #fbce72;
-  background: linear-gradient(top, #fbce72, #fbce72);
-  background: -o-linear-gradient(top, #fbce72, #fbce72);
-  background: -moz-linear-gradient(top, #fbce72, #fbce72);
-  background: -webkit-linear-gradient(top, #fbce72, #fbce72);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #fbce72), color-stop(0, #fbce72));
-  background: -ms-linear-gradient(top, #fbce72, #fbce72);
   background-size: 100%;
   font-family: Aller, Verdana, Arial;
   color: #333333; }
@@ -169,8 +162,7 @@ footer {
   font-size: 1.3em;
   color: white;
   background: black;
-  padding: 0.6% 2% 0.5%;
-  margin: 2% 0 0 0; }
+  padding: 0.6% 2% 0.5%; }
 
 .textile p {
   margin: 7px 0 10px 0; }
@@ -364,20 +356,41 @@ footer {
   .prodotti .product .text {
     font-size: 0.95em; }
 
+html {
+  height: 100%; }
+
+body.layout_photo {
+  height: 100%; }
+  body.layout_photo #container {
+    margin: 0;
+    width: 100%;
+    max-width: 2500px; }
+  body.layout_photo h1 {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    font-size: 1.4em;
+    padding: 4px 1% 1px;
+    background: rgba(190, 190, 190, 0.7); }
+  body.layout_photo .photo_gallery {
+    height: 100%;
+    z-index: 1; }
+
 .photo_gallery {
   position: relative;
-  overflow: hidden; }
-  .photo_gallery .box {
+  overflow: hidden;
+  height: 100%;
+  background: #222222; }
+  .photo_gallery div {
     position: absolute;
     width: 100%;
     -webkit-transition: -webkit-transform 0.7s ease-in-out;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    display: none; }
+    -webkit-transform: translate3d(-100%, 0, 0); }
   .photo_gallery img {
     width: 100%;
     margin: 0 auto;
-    display: block; }
-  .photo_gallery .pos0, .photo_gallery .pos1, .photo_gallery .pos2 {
     display: block; }
   .photo_gallery .pos1 {
     -webkit-transform: translate3d(0, 0, 0); }
@@ -386,13 +399,6 @@ footer {
 
 .user {
   margin: 0 0 10px 0;
-  background: rgba(255, 255, 255, 0.9);
-  background: linear-gradient(top, rgba(255, 255, 255, 0.9), rgba(210, 210, 210, 0.7));
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.9), rgba(210, 210, 210, 0.7));
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.9), rgba(210, 210, 210, 0.7));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.9), rgba(210, 210, 210, 0.7));
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, rgba(255, 255, 255, 0.9)), color-stop(0, rgba(210, 210, 210, 0.7)));
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.9), rgba(210, 210, 210, 0.7));
   padding: 5px 1.5% 10px;
   -moz-border-radius: 12px;
   -o-border-radius: 12px;
@@ -407,13 +413,6 @@ footer {
 .users .user {
   cursor: pointer; }
   .users .user:hover {
-    background: rgba(180, 180, 180, 0.8);
-    background: linear-gradient(top, rgba(180, 180, 180, 0.8), rgba(255, 255, 255, 0.9));
-    background: -o-linear-gradient(top, rgba(180, 180, 180, 0.8), rgba(255, 255, 255, 0.9));
-    background: -moz-linear-gradient(top, rgba(180, 180, 180, 0.8), rgba(255, 255, 255, 0.9));
-    background: -webkit-linear-gradient(top, rgba(180, 180, 180, 0.8), rgba(255, 255, 255, 0.9));
-    background: -webkit-gradient(linear, left bottom, left top, color-stop(1, rgba(180, 180, 180, 0.8)), color-stop(0, rgba(255, 255, 255, 0.9)));
-    background: -ms-linear-gradient(top, rgba(180, 180, 180, 0.8), rgba(255, 255, 255, 0.9));
     border: 1px solid #cccccc;
     border-top: 1px solid #888888;
     box-shadow: 0px 0px 4px white; }

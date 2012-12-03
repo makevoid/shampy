@@ -1,3 +1,5 @@
+g = window
+
 resize_gallery = (element) ->
   height = $(".#{element} img:first").height()
   $(".#{element}").height height unless height == 0
@@ -145,50 +147,74 @@ gal.animate = ->
 
 phogal = {}
 
+g.phogal = phogal
+
 phogal.init = (selector) ->
   this.selector = selector
 
 phogal.elem = ->
   $(phogal.selector)
 
-phogal.anim_time = 4000
-phogal.anim_time = 2000 # testing
+phogal.anim_time = 5000
+# phogal.anim_time = 2000 # testing
 
 phogal.resize = ->
   this.elem().find("img").imagesLoaded =>
-    this.resize_once()
+    this.resize_images()
     $(window).on "resize", =>
-      this.resize_once()
+      this.resize_images()
 
-phogal.resize_once = ->
-  this.elem().find("img").each (idx, elem) =>
-    elem = $(elem)
-    max_height = this.elem().height()
-    proportion = elem.width() / elem.height()
-    width = proportion * max_height
-    elem.width width
+phogal.resize_images = ->
+  win_height = $(window).height()
+  divs = this.elem().find("div")
+  divs.each (idx, element) =>
+    elem = $(element).find "img"
+    proportion = elem.height() / elem.width()
+    if proportion >= 1 # vertical
+      width = win_height / proportion
+      $(elem).width width
+      # todo: use transitions
+    else
+      height = (win_height - elem.height())/2
+      $(element).css { top: height  }
+      # todo: use transitions
 
-  # this.elem().height this.elem().find("img").height()
-
+phogal.stop = ->
+  self.stop_anim = true
 
 phogal.animate = ->
+  # this.elem().imagesLoaded =>
+  # phogal.animate_once()
+  # this.resize_once()
+  # fixme: hack
+
   setTimeout =>
     phogal.animate_once()
-    phogal.animate()
+    phogal.animate() unless self.stop_anim
   , phogal.anim_time
 
+  this.elem().find("div:last").on "webkitTransitionEnd", =>
+    # this.elem().find("div").css display: "none"
+    # this.elem().find(".pos1,.pos2").css display:
+    this.elem().find("div").css opacity: 0
+    this.elem().find(".pos1,.pos2").css opacity: 1
+
+
 phogal.animate_once = ->
-  prev = this.elem().find(".box:last")
+  prev = this.elem().find("div:last")
+  # console.log $(prev.get(0)).attr "class"
   prev_copy = prev.clone()
   prev.remove()
   this.elem().prepend prev_copy # or prepend?
 
-  images = this.elem().find(".box")
+  images = this.elem().find("div")
   size = images.length
   images.each (idx, elem) ->
     elem = $(elem)
     elem.removeClass()
     elem.addClass "pos#{size-idx-1}"
+
+  #
 
 
 $ ->
@@ -196,6 +222,7 @@ $ ->
   phogal.init ".photo_gallery"
   phogal.resize()
   phogal.animate()
+
 
 
   galleries = []

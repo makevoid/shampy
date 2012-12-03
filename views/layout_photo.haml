@@ -1,0 +1,7 @@
+%html
+  %head
+    = partial :head
+  %body{ class: "layout_photo #{body_class}" }
+    #container
+      = yield
+    = partial :javascripts

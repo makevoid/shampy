@@ -1,5 +1,7 @@
 (function() {
-  var gal, gal_one, gal_simple, phogal, rand, resize_all_galleries, resize_galleries, resize_gallery;
+  var g, gal, gal_one, gal_simple, phogal, rand, resize_all_galleries, resize_galleries, resize_gallery;
+
+  g = window;
 
   resize_gallery = function(element) {
     var height;
@@ -180,6 +182,8 @@
 
   phogal = {};
 
+  g.phogal = phogal;
+
   phogal.init = function(selector) {
     return this.selector = selector;
   };
@@ -188,47 +192,68 @@
     return $(phogal.selector);
   };
 
-  phogal.anim_time = 4000;
-
-  phogal.anim_time = 2000;
+  phogal.anim_time = 5000;
 
   phogal.resize = function() {
     var _this = this;
     return this.elem().find("img").imagesLoaded(function() {
-      _this.resize_once();
+      _this.resize_images();
       return $(window).on("resize", function() {
-        return _this.resize_once();
+        return _this.resize_images();
       });
     });
   };
 
-  phogal.resize_once = function() {
-    var _this = this;
-    return this.elem().find("img").each(function(idx, elem) {
-      var max_height, proportion, width;
-      elem = $(elem);
-      max_height = _this.elem().height();
-      proportion = elem.width() / elem.height();
-      width = proportion * max_height;
-      return elem.width(width);
+  phogal.resize_images = function() {
+    var divs, win_height,
+      _this = this;
+    win_height = $(window).height();
+    divs = this.elem().find("div");
+    return divs.each(function(idx, element) {
+      var elem, height, proportion, width;
+      elem = $(element).find("img");
+      proportion = elem.height() / elem.width();
+      if (proportion >= 1) {
+        width = win_height / proportion;
+        return $(elem).width(width);
+      } else {
+        height = (win_height - elem.height()) / 2;
+        return $(element).css({
+          top: height
+        });
+      }
     });
+  };
+
+  phogal.stop = function() {
+    return self.stop_anim = true;
   };
 
   phogal.animate = function() {
     var _this = this;
-    return setTimeout(function() {
+    setTimeout(function() {
       phogal.animate_once();
-      return phogal.animate();
+      if (!self.stop_anim) {
+        return phogal.animate();
+      }
     }, phogal.anim_time);
+    return this.elem().find("div:last").on("webkitTransitionEnd", function() {
+      _this.elem().find("div").css({
+        opacity: 0
+      });
+      return _this.elem().find(".pos1,.pos2").css({
+        opacity: 1
+      });
+    });
   };
 
   phogal.animate_once = function() {
     var images, prev, prev_copy, size;
-    prev = this.elem().find(".box:last");
+    prev = this.elem().find("div:last");
     prev_copy = prev.clone();
     prev.remove();
     this.elem().prepend(prev_copy);
-    images = this.elem().find(".box");
+    images = this.elem().find("div");
     size = images.length;
     return images.each(function(idx, elem) {
       elem = $(elem);

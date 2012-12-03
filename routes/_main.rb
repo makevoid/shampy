@@ -40,7 +40,7 @@ class Shampy < Sinatra::Base
     @type = type
     halt 404, "Not found" unless Type.all.include? type
     @photos = Photo.all @type
-    haml :foto_type
+    haml :foto_type, layout: :layout_photo
   end
 
   get "/step_by_step" do

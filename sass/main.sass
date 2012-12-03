@@ -1,14 +1,8 @@
 //$main: #D00
 $main: #333
 $base: #fbce72
-$bg_two: #fbce72
-//$base: #d9c0ac
+$photo_bg: #222
 $bg:  #fff
-$bg2: #fff
-$fg: rgba(255, 255, 255, 1)// #FFF
-$fg2: rgba(255, 255, 255, 0.9)// #FFF
-$fg3: rgba(210, 210, 210, 0.7)// #FFF
-$fg4: rgba(180, 180, 180, 0.8)// #FFF
 $text: #333
 $fonts_default: Aller, Verdana, Arial
 $fonts_titles: Bebas
@@ -48,7 +42,7 @@ ul
 body
   background: $base
   // background: url(/images/d3c.png) no-repeat $bg
-  +gradient($base, $bg_two)
+  // +gradient($base, $bg_two)
   background-size: 100%
   font-family: $fonts_default
   color: $text
@@ -59,9 +53,7 @@ a:hover
   color: $main + #222
 a.btn, nav.main a
   +button
-  //background: $main
   &:hover
-    //+emboss_hover
     background: #fff
     color: $main
 
@@ -181,10 +173,8 @@ input[type='submit']
   width: auto
   float: right
   display: inline-block
-  //+button
   font-family: $fonts_default
   &:hover
-    //+emboss_hover
 
 .content input[type='submit']
   margin: 10px 0 20px 0
@@ -196,7 +186,6 @@ footer
   color: white
   background: black
   padding: 0.6% 2% 0.5%
-  margin: 2% 0 0 0
 
 
 // textile
@@ -449,28 +438,59 @@ $gal_width_margin: 100% - $box_margin*4
   //   float: right
   //   margin: 0 0 0 1.2%
 
+// LAYOUT: photo
+
+html
+  height: 100%
+
+body.layout_photo
+  height: 100%
+  #container
+    margin: 0
+    width: 100%
+    max-width: 2500px
+  h1
+    margin: 0
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 2
+    font-size: 1.4em
+    padding: 4px 1% 1px
+    background: rgba(190,190,190, 0.7)
+  .photo_gallery
+    height: 100%
+    z-index: 1
+
 // foto tagli
 
 .photo_gallery
   position: relative
   overflow: hidden
-  .box
+  height: 100%
+  background: $photo_bg
+  div
     position: absolute
+
     width: 100%
+    // width: 50% // debug
     -webkit-transition: -webkit-transform 0.7s ease-in-out
     -webkit-transform: translate3d(-100%, 0, 0)
-    display: none
+    // display: none
+    // opacity: 0
   img
     width: 100%
     margin: 0 auto
     display: block
-  .pos0, .pos1, .pos2
-    display: block
-  .pos0
+  .pos1, .pos2
+    // opacity: 1
+  .pos2
   .pos1
     -webkit-transform: translate3d(0, 0, 0)
   .pos2
     -webkit-transform: translate3d(100%, 0, 0)
+
+
 
 
 // users

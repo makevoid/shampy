@@ -1,7 +1,6 @@
 %html
   %head
-    %title Shampy
-    %link{ rel: "stylesheet", href: "/css/main.css" }
+    = partial :head
   %body{ class: body_class }
     #container
       %nav.right
@@ -42,7 +41,6 @@
       .clear
       %footer
         © #{Time.now.year} Shampy
-
-      %script{ type: "text/javascript", src: "/js/vendor/jquery.js" }
-      %script{ type: "text/javascript", src: "/js/vendor/jquery_imagesloaded.js" }
-      %script{ type: "text/javascript", src: "/js/app.js" }
+      .clear &nbsp;
+        
+      = partial :javascripts

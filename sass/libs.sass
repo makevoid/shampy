@@ -20,6 +20,8 @@
   -webkit-transform: $transform
   -o-transform: $transform
 
+$fg: #FFF
+
 =emboss
   border:       1px solid $fg - #777
   border-left:  1px solid $fg - #666
@@ -33,19 +35,17 @@
   box-shadow: 0px 0px 4px #FFF
 
 =box
-  +gradient($fg2, $fg3)
+  //+gradient($fg2, $fg3)
   padding: 5px 1.5% 10px
   +radius(12px)
   +emboss
 
 =box_hover
-  +gradient($fg4, $fg2)
+  //+gradient($fg4, $fg2)
   +emboss_hover
 
 =button
-  //+radius(8px)
   font-weight: bold
   font-size: 0.9em
   padding: 3px 4px 0
-  //+emboss
   cursor: pointer
