@@ -161,6 +161,7 @@ phogal.anim_time = 5000
 phogal.resize = ->
   this.elem().find("img").imagesLoaded =>
     this.resize_images()
+    # todo: debounced resize
     $(window).on "resize", =>
       this.resize_images()
 
@@ -173,29 +174,23 @@ phogal.resize_images = ->
     if proportion >= 1 # vertical
       width = win_height / proportion
       $(elem).width width
+
       # todo: use transitions
     else
-      height = (win_height - elem.height())/2
-      $(element).css { top: height  }
+      top = (win_height - elem.height())/2
+      $(element).css { top: top  }
       # todo: use transitions
 
 phogal.stop = ->
   self.stop_anim = true
 
 phogal.animate = ->
-  # this.elem().imagesLoaded =>
-  # phogal.animate_once()
-  # this.resize_once()
-  # fixme: hack
-
   setTimeout =>
     phogal.animate_once()
     phogal.animate() unless self.stop_anim
   , phogal.anim_time
 
   this.elem().find("div:last").on "webkitTransitionEnd", =>
-    # this.elem().find("div").css display: "none"
-    # this.elem().find(".pos1,.pos2").css display:
     this.elem().find("div").css opacity: 0
     this.elem().find(".pos1,.pos2").css opacity: 1
 
@@ -214,19 +209,35 @@ phogal.animate_once = ->
     elem.removeClass()
     elem.addClass "pos#{size-idx-1}"
 
-  #
+phogal.next = ->
+
+
+phogal.prev = ->
+
+
+phogal.unbind_buttons = ->
+  this.elem().find(".next, .prev").off "click"
+
+phogal.bind_buttons = ->
+  this.elem().find(".next").on "click", this.next
+  this.elem().find(".prev").on "click", this.prev
+
+phogal.start = ->
+  phogal.resize()
+  phogal.animate()
+  phogal.bind_buttons()
 
 
 $ ->
 
   phogal.init ".photo_gallery"
-  phogal.resize()
-  phogal.animate()
+  phogal.start()
 
 
 
   galleries = []
   gal_ones = $(".gallery_one_left, .gallery_one, .gallery_two").each (idx, gal) ->
+    return if $(gal).hasClass "static"
     galleries[idx] = $.extend({}, gal_one)
     galleries[idx].element = gal
     galleries[idx].photos = $.makeArray galleries[idx].photos_imgs()

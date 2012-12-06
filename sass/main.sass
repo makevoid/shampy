@@ -75,6 +75,12 @@ nav.main
 h1, nav.main
   margin: 0 0 $box_margin
 
+.content
+  margin: 0 0 $box_margin
+
+.home .content
+  margin: 0
+
 .content h1
   font-size: 1.9em
   color: $main
@@ -266,6 +272,7 @@ $gal_width: 100%
     font-family: $fonts_titles
   img
     position: absolute
+    -moz-transition: all 1.2s ease-in-out
     -webkit-transition: all 1.2s ease-in-out, opacity 0.3s ease-in-out
     // -webkit-transition-property: transform
     // -webkit-transition-duration: 1.2s
@@ -280,46 +287,59 @@ $gal_width: 100%
     width: $gal_width
     opacity: 0
     z-index: 2
+  .pos0, .pos1
+    // left: -$gal_width
+    -webkit-transform: translate3d(-100%, 0, 0)
+    -moz-transform: translate(-100%, 0)
+  .pos3, .pos4
+    // left: $gal_width
+    -webkit-transform: translate3d(100%, 0, 0)
+    -moz-transform: translate(100%, 0)
   .pos0
-    left: -$gal_width
-    opacity: 0
     z-index: 1
   .pos1
-    left: -$gal_width
     opacity: 1
   .pos2
-    left: 0
+    // left: 0
+    -webkit-transform: translate3d(0, 0, 0)
     opacity: 1
   .pos3
-    left: $gal_width
-    opacity: 0
     z-index: 2
   .pos4
-    left: $gal_width
-    opacity: 0
     z-index: 1
 
 .gallery_two.reverse_slide
   .pos0, .pos1
-    left: $gal_width
+    // left: $gal_width
+    -webkit-transform: translate3d(100%, 0, 0)
   .pos3, .pos4
-    left: -$gal_width
+    // left: -$gal_width
+    -webkit-transform: translate3d(-100%, 0, 0)
 
 .gallery_two.slide_down
-  img
-    left: 0
   .pos0, .pos1
-    top: $gal_width
+    // top: $gal_width
+    -webkit-transform: translate3d(0, 100%, 0)
   .pos3, .pos4
-    top: -$gal_width
+    // top: -$gal_width
+    -webkit-transform: translate3d(0, -100%, 0)
 
 .gallery_two.slide_up
-  img
-    left: 0
   .pos0, .pos1
-    top: -$gal_width
+    // top: -$gal_width
+    -webkit-transform: translate3d(0, -100%, 0)
   .pos3, .pos4
-    top: $gal_width
+    // top: $gal_width
+    -webkit-transform: translate3d(0, 100%, 0)
+
+
+//
+  .column_right .gallery_one.reverse_slide
+    .pos0, .pos1
+      -webkit-transform: translate3d(-20%, 0, 0)
+    .pos3, .pos4
+      -webkit-transform: translate3d(20%, 0, 0)
+
 
 .gallery_two.flip
   img
@@ -333,12 +353,8 @@ $gal_width_margin: 100% - $box_margin*4
   width: $gal_width_margin
   img
     width: $gal_width_margin
-  .pos0, .pos1
-    left: -$gal_width_margin -$box_margin*8
-  .pos2
+    position: absolute
     left: -$box_margin*4
-  .pos3, .pos4
-    left: $gal_width_margin
 
 .gallery_one_left
   height: 400px
@@ -349,7 +365,6 @@ $gal_width_margin: 100% - $box_margin*4
 
 .static
   img, .pos0, .pos1, .pos2, .pos3, .pos4
-    left: 0
     opacity: 1
 
 .home .column_right .static img
@@ -482,14 +497,34 @@ body.layout_photo
     width: 100%
     margin: 0 auto
     display: block
-  .pos1, .pos2
-    // opacity: 1
-  .pos2
   .pos1
     -webkit-transform: translate3d(0, 0, 0)
   .pos2
     -webkit-transform: translate3d(100%, 0, 0)
-
+  .close, .next, .prev
+    position: absolute
+    z-index: 4
+    color: #CCC
+    background: rgba(70,70,70,0.4)
+    cursor: pointer
+    &:hover
+      color: #FFF
+      background: rgba(40,40,40,0.6)
+  .close
+    padding: 0px 9px 2px
+    top: 0
+    right: 0
+    font-size: 1.6em
+    color: #DDD
+    background: rgba(70,70,70,0.5)
+  .next, .prev
+    padding: 3px 5px
+    top: 47%
+    font-size: 1.8em
+  .prev
+    left: 0
+  .next
+    right: 0
 
 
 

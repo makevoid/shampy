@@ -60,6 +60,12 @@ nav.main {
 h1, nav.main {
   margin: 0 0 1.66667%; }
 
+.content {
+  margin: 0 0 1.66667%; }
+
+.home .content {
+  margin: 0; }
+
 .content h1 {
   font-size: 1.9em;
   color: #333333; }
@@ -209,6 +215,7 @@ footer {
     font-family: Bebas; }
   .gallery img, .gallery_one img, .gallery_simple img, .gallery_two img, .gallery_one_left img {
     position: absolute;
+    -moz-transition: all 1.2s ease-in-out;
     -webkit-transition: all 1.2s ease-in-out, opacity 0.3s ease-in-out; }
   .gallery img:hover, .gallery_one img:hover, .gallery_simple img:hover, .gallery_two img:hover, .gallery_one_left img:hover {
     cursor: pointer;
@@ -218,43 +225,38 @@ footer {
   width: 100%;
   opacity: 0;
   z-index: 2; }
+.gallery_one .pos0, .gallery_one .pos1, .gallery_simple .pos0, .gallery_simple .pos1, .gallery_two .pos0, .gallery_two .pos1, .gallery_one_left .pos0, .gallery_one_left .pos1 {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate(-100%, 0); }
+.gallery_one .pos3, .gallery_one .pos4, .gallery_simple .pos3, .gallery_simple .pos4, .gallery_two .pos3, .gallery_two .pos4, .gallery_one_left .pos3, .gallery_one_left .pos4 {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate(100%, 0); }
 .gallery_one .pos0, .gallery_simple .pos0, .gallery_two .pos0, .gallery_one_left .pos0 {
-  left: -100%;
-  opacity: 0;
   z-index: 1; }
 .gallery_one .pos1, .gallery_simple .pos1, .gallery_two .pos1, .gallery_one_left .pos1 {
-  left: -100%;
   opacity: 1; }
 .gallery_one .pos2, .gallery_simple .pos2, .gallery_two .pos2, .gallery_one_left .pos2 {
-  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
   opacity: 1; }
 .gallery_one .pos3, .gallery_simple .pos3, .gallery_two .pos3, .gallery_one_left .pos3 {
-  left: 100%;
-  opacity: 0;
   z-index: 2; }
 .gallery_one .pos4, .gallery_simple .pos4, .gallery_two .pos4, .gallery_one_left .pos4 {
-  left: 100%;
-  opacity: 0;
   z-index: 1; }
 
 .gallery_two.reverse_slide .pos0, .gallery_two.reverse_slide .pos1 {
-  left: 100%; }
+  -webkit-transform: translate3d(100%, 0, 0); }
 .gallery_two.reverse_slide .pos3, .gallery_two.reverse_slide .pos4 {
-  left: -100%; }
+  -webkit-transform: translate3d(-100%, 0, 0); }
 
-.gallery_two.slide_down img {
-  left: 0; }
 .gallery_two.slide_down .pos0, .gallery_two.slide_down .pos1 {
-  top: 100%; }
+  -webkit-transform: translate3d(0, 100%, 0); }
 .gallery_two.slide_down .pos3, .gallery_two.slide_down .pos4 {
-  top: -100%; }
+  -webkit-transform: translate3d(0, -100%, 0); }
 
-.gallery_two.slide_up img {
-  left: 0; }
 .gallery_two.slide_up .pos0, .gallery_two.slide_up .pos1 {
-  top: -100%; }
+  -webkit-transform: translate3d(0, -100%, 0); }
 .gallery_two.slide_up .pos3, .gallery_two.slide_up .pos4 {
-  top: 100%; }
+  -webkit-transform: translate3d(0, 100%, 0); }
 
 .gallery_two.flip img {
   -webkit-transform: rotateY(90deg); }
@@ -264,13 +266,9 @@ footer {
   height: 200px;
   width: 93.33333%; }
   .gallery_one img {
-    width: 93.33333%; }
-  .gallery_one .pos0, .gallery_one .pos1 {
-    left: -106.66667%; }
-  .gallery_one .pos2 {
+    width: 93.33333%;
+    position: absolute;
     left: -6.66667%; }
-  .gallery_one .pos3, .gallery_one .pos4 {
-    left: 93.33333%; }
 
 .gallery_one_left {
   height: 400px;
@@ -280,7 +278,6 @@ footer {
     margin: 0; }
 
 .static img, .static .pos0, .static .pos1, .static .pos2, .static .pos3, .static .pos4 {
-  left: 0;
   opacity: 1; }
 
 .home .column_right .static img {
@@ -396,6 +393,30 @@ body.layout_photo {
     -webkit-transform: translate3d(0, 0, 0); }
   .photo_gallery .pos2 {
     -webkit-transform: translate3d(100%, 0, 0); }
+  .photo_gallery .close, .photo_gallery .next, .photo_gallery .prev {
+    position: absolute;
+    z-index: 4;
+    color: #cccccc;
+    background: rgba(70, 70, 70, 0.4);
+    cursor: pointer; }
+    .photo_gallery .close:hover, .photo_gallery .next:hover, .photo_gallery .prev:hover {
+      color: white;
+      background: rgba(40, 40, 40, 0.6); }
+  .photo_gallery .close {
+    padding: 0px 9px 2px;
+    top: 0;
+    right: 0;
+    font-size: 1.6em;
+    color: #dddddd;
+    background: rgba(70, 70, 70, 0.5); }
+  .photo_gallery .next, .photo_gallery .prev {
+    padding: 3px 5px;
+    top: 47%;
+    font-size: 1.8em; }
+  .photo_gallery .prev {
+    left: 0; }
+  .photo_gallery .next {
+    right: 0; }
 
 .user {
   margin: 0 0 10px 0;

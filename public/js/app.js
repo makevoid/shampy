@@ -210,16 +210,16 @@
     win_height = $(window).height();
     divs = this.elem().find("div");
     return divs.each(function(idx, element) {
-      var elem, height, proportion, width;
+      var elem, proportion, top, width;
       elem = $(element).find("img");
       proportion = elem.height() / elem.width();
       if (proportion >= 1) {
         width = win_height / proportion;
         return $(elem).width(width);
       } else {
-        height = (win_height - elem.height()) / 2;
+        top = (win_height - elem.height()) / 2;
         return $(element).css({
-          top: height
+          top: top
         });
       }
     });
@@ -262,13 +262,34 @@
     });
   };
 
+  phogal.next = function() {};
+
+  phogal.prev = function() {};
+
+  phogal.unbind_buttons = function() {
+    return this.elem().find(".next, .prev").off("click");
+  };
+
+  phogal.bind_buttons = function() {
+    this.elem().find(".next").on("click", this.next);
+    return this.elem().find(".prev").on("click", this.prev);
+  };
+
+  phogal.start = function() {
+    phogal.resize();
+    phogal.animate();
+    return phogal.bind_buttons();
+  };
+
   $(function() {
     var gal_ones, galleries;
     phogal.init(".photo_gallery");
-    phogal.resize();
-    phogal.animate();
+    phogal.start();
     galleries = [];
     gal_ones = $(".gallery_one_left, .gallery_one, .gallery_two").each(function(idx, gal) {
+      if ($(gal).hasClass("static")) {
+        return;
+      }
       galleries[idx] = $.extend({}, gal_one);
       galleries[idx].element = gal;
       galleries[idx].photos = $.makeArray(galleries[idx].photos_imgs());
