@@ -157,7 +157,7 @@ phogal.elem = ->
   $(phogal.selector)
 
 phogal.anim_time = 5000
-# phogal.anim_time = 2000 # testing
+phogal.anim_time = 2000 # testing
 
 phogal.resize = ->
   this.elem().find("img").imagesLoaded =>
@@ -194,41 +194,57 @@ phogal.animate_now = ->
   @animate_once()
   @animate()
 
-phogal.set_opacity = ->
+phogal.watch_transition_end = ->
   @elem().find("div:last").on "webkitTransitionEnd", =>
-    @elem().find("div").css opacity: 0
-    @elem().find(".pos1,.pos2").css opacity: 1
+
+    @set_opacity()
     @bind_buttons()
 
+phogal.set_opacity = ->
+  @elem().find("div").css opacity: 0
+  visibles = if @reverse
+    ".pos0, .pos1"
+  else
+    ".pos1,.pos2"
+  @elem().find(visibles).css opacity: 1
 
 
 phogal.animate_once = ->
-  prev = @elem().find "div:last"
-  # console.log $(prev.get(0)).attr "class"
-  prev_copy = prev.clone()
-  prev.remove()
-  @elem().prepend prev_copy # or prepend?
+  unless @reverse
+    prev = @elem().find "div:last"
+    prev_copy = prev.clone()
+    prev.remove()
+    @elem().prepend prev_copy
+  else
+    prev = @elem().find "div:first"
+    prev_copy = prev.clone()
+    prev.remove()
+    @elem().append prev_copy
 
   images = @elem().find "div"
   size = images.length
   images.each (idx, elem) ->
     elem = $(elem)
     elem.removeClass()
-    elem.addClass "pos#{size-idx-1}"
+
+    pos_num = unless @reverse
+      size-idx-1
+    else
+      idx
+
+    elem.addClass "pos#{pos_num}"
 
 phogal.next = ->
   clearTimeout @timer
+  @reverse = false
   @unbind_buttons()
   @animate_now()
 
 phogal.prev = ->
   clearTimeout @timer
+  @reverse = true
   @unbind_buttons()
-  @animation_reverse()
   @animate_now()
-
-phogal.animation_reverse = ->
-
 
 
 phogal.unbind_buttons = ->

@@ -195,6 +195,8 @@
 
   phogal.anim_time = 5000;
 
+  phogal.anim_time = 2000;
+
   phogal.resize = function() {
     var _this = this;
     return this.elem().find("img").imagesLoaded(function() {
@@ -239,48 +241,62 @@
     return this.animate();
   };
 
-  phogal.set_opacity = function() {
+  phogal.watch_transition_end = function() {
     var _this = this;
     return this.elem().find("div:last").on("webkitTransitionEnd", function() {
-      _this.elem().find("div").css({
-        opacity: 0
-      });
-      _this.elem().find(".pos1,.pos2").css({
-        opacity: 1
-      });
+      _this.set_opacity();
       return _this.bind_buttons();
+    });
+  };
+
+  phogal.set_opacity = function() {
+    var visibles;
+    this.elem().find("div").css({
+      opacity: 0
+    });
+    visibles = this.reverse ? ".pos0, .pos1" : ".pos1,.pos2";
+    return this.elem().find(visibles).css({
+      opacity: 1
     });
   };
 
   phogal.animate_once = function() {
     var images, prev, prev_copy, size;
-    prev = this.elem().find("div:last");
-    prev_copy = prev.clone();
-    prev.remove();
-    this.elem().prepend(prev_copy);
+    if (!this.reverse) {
+      prev = this.elem().find("div:last");
+      prev_copy = prev.clone();
+      prev.remove();
+      this.elem().prepend(prev_copy);
+    } else {
+      prev = this.elem().find("div:first");
+      prev_copy = prev.clone();
+      prev.remove();
+      this.elem().append(prev_copy);
+    }
     images = this.elem().find("div");
     size = images.length;
     return images.each(function(idx, elem) {
+      var pos_num;
       elem = $(elem);
       elem.removeClass();
-      return elem.addClass("pos" + (size - idx - 1));
+      pos_num = !this.reverse ? size - idx - 1 : idx;
+      return elem.addClass("pos" + pos_num);
     });
   };
 
   phogal.next = function() {
     clearTimeout(this.timer);
+    this.reverse = false;
     this.unbind_buttons();
     return this.animate_now();
   };
 
   phogal.prev = function() {
     clearTimeout(this.timer);
+    this.reverse = true;
     this.unbind_buttons();
-    this.animation_reverse();
     return this.animate_now();
   };
-
-  phogal.animation_reverse = function() {};
 
   phogal.unbind_buttons = function() {
     return this.elem().find(".next, .prev").off("click");
