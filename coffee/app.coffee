@@ -157,7 +157,7 @@ phogal.elem = ->
   $(phogal.selector)
 
 phogal.anim_time = 5000
-phogal.anim_time = 2000 # testing
+# phogal.anim_time = 2000 # testing
 
 phogal.resize = ->
   this.elem().find("img").imagesLoaded =>
@@ -187,7 +187,7 @@ phogal.animate = ->
     @animate_now()
   , phogal.anim_time
 
-  @set_opacity()
+  @watch_transition_end()
 
 
 phogal.animate_now = ->

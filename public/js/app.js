@@ -195,8 +195,6 @@
 
   phogal.anim_time = 5000;
 
-  phogal.anim_time = 2000;
-
   phogal.resize = function() {
     var _this = this;
     return this.elem().find("img").imagesLoaded(function() {
@@ -233,7 +231,7 @@
     this.timer = setTimeout(function() {
       return _this.animate_now();
     }, phogal.anim_time);
-    return this.set_opacity();
+    return this.watch_transition_end();
   };
 
   phogal.animate_now = function() {
