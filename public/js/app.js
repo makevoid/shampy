@@ -185,6 +185,7 @@
   g.phogal = phogal;
 
   phogal.init = function(selector) {
+    this.timer = null;
     return this.selector = selector;
   };
 
@@ -225,25 +226,29 @@
     });
   };
 
-  phogal.stop = function() {
-    return self.stop_anim = true;
-  };
-
   phogal.animate = function() {
     var _this = this;
-    setTimeout(function() {
-      phogal.animate_once();
-      if (!self.stop_anim) {
-        return phogal.animate();
-      }
+    this.timer = setTimeout(function() {
+      return _this.animate_now();
     }, phogal.anim_time);
+    return this.set_opacity();
+  };
+
+  phogal.animate_now = function() {
+    this.animate_once();
+    return this.animate();
+  };
+
+  phogal.set_opacity = function() {
+    var _this = this;
     return this.elem().find("div:last").on("webkitTransitionEnd", function() {
       _this.elem().find("div").css({
         opacity: 0
       });
-      return _this.elem().find(".pos1,.pos2").css({
+      _this.elem().find(".pos1,.pos2").css({
         opacity: 1
       });
+      return _this.bind_buttons();
     });
   };
 
@@ -262,17 +267,34 @@
     });
   };
 
-  phogal.next = function() {};
+  phogal.next = function() {
+    clearTimeout(this.timer);
+    this.unbind_buttons();
+    return this.animate_now();
+  };
 
-  phogal.prev = function() {};
+  phogal.prev = function() {
+    clearTimeout(this.timer);
+    this.unbind_buttons();
+    this.animation_reverse();
+    return this.animate_now();
+  };
+
+  phogal.animation_reverse = function() {};
 
   phogal.unbind_buttons = function() {
     return this.elem().find(".next, .prev").off("click");
   };
 
   phogal.bind_buttons = function() {
-    this.elem().find(".next").on("click", this.next);
-    return this.elem().find(".prev").on("click", this.prev);
+    var _this = this;
+    this.unbind_buttons();
+    this.elem().find(".next").on("click", function() {
+      return _this.next();
+    });
+    return this.elem().find(".prev").on("click", function() {
+      return _this.prev();
+    });
   };
 
   phogal.start = function() {

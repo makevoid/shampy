@@ -150,6 +150,7 @@ phogal = {}
 g.phogal = phogal
 
 phogal.init = (selector) ->
+  @timer = null
   this.selector = selector
 
 phogal.elem = ->
@@ -181,28 +182,34 @@ phogal.resize_images = ->
       $(element).css { top: top  }
       # todo: use transitions
 
-phogal.stop = ->
-  self.stop_anim = true
-
 phogal.animate = ->
-  setTimeout =>
-    phogal.animate_once()
-    phogal.animate() unless self.stop_anim
+  @timer = setTimeout =>
+    @animate_now()
   , phogal.anim_time
 
-  this.elem().find("div:last").on "webkitTransitionEnd", =>
-    this.elem().find("div").css opacity: 0
-    this.elem().find(".pos1,.pos2").css opacity: 1
+  @set_opacity()
+
+
+phogal.animate_now = ->
+  @animate_once()
+  @animate()
+
+phogal.set_opacity = ->
+  @elem().find("div:last").on "webkitTransitionEnd", =>
+    @elem().find("div").css opacity: 0
+    @elem().find(".pos1,.pos2").css opacity: 1
+    @bind_buttons()
+
 
 
 phogal.animate_once = ->
-  prev = this.elem().find("div:last")
+  prev = @elem().find "div:last"
   # console.log $(prev.get(0)).attr "class"
   prev_copy = prev.clone()
   prev.remove()
-  this.elem().prepend prev_copy # or prepend?
+  @elem().prepend prev_copy # or prepend?
 
-  images = this.elem().find("div")
+  images = @elem().find "div"
   size = images.length
   images.each (idx, elem) ->
     elem = $(elem)
@@ -210,23 +217,32 @@ phogal.animate_once = ->
     elem.addClass "pos#{size-idx-1}"
 
 phogal.next = ->
-
+  clearTimeout @timer
+  @unbind_buttons()
+  @animate_now()
 
 phogal.prev = ->
+  clearTimeout @timer
+  @unbind_buttons()
+  @animation_reverse()
+  @animate_now()
+
+phogal.animation_reverse = ->
+
 
 
 phogal.unbind_buttons = ->
-  this.elem().find(".next, .prev").off "click"
+  @elem().find(".next, .prev").off "click"
 
 phogal.bind_buttons = ->
-  this.elem().find(".next").on "click", this.next
-  this.elem().find(".prev").on "click", this.prev
+  @unbind_buttons()
+  @elem().find(".next").on "click", => @next()
+  @elem().find(".prev").on "click", => @prev()
 
 phogal.start = ->
   phogal.resize()
   phogal.animate()
   phogal.bind_buttons()
-
 
 $ ->
 
