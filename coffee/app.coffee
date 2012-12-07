@@ -195,17 +195,14 @@ phogal.animate_now = ->
   @animate()
 
 phogal.watch_transition_end = ->
-  @elem().find("div:last").on "webkitTransitionEnd", =>
+  @elem().find("div:first").on "webkitTransitionEnd", =>
 
     @set_opacity()
     @bind_buttons()
 
 phogal.set_opacity = ->
   @elem().find("div").css opacity: 0
-  visibles = if @reverse
-    ".pos0, .pos1"
-  else
-    ".pos1,.pos2"
+  visibles = ".pos1, .pos2, .pos3"
   @elem().find(visibles).css opacity: 1
 
 
@@ -245,6 +242,8 @@ phogal.prev = ->
   @reverse = true
   @unbind_buttons()
   @animate_now()
+  @set_opacity()
+
 
 
 phogal.unbind_buttons = ->
@@ -259,6 +258,7 @@ phogal.start = ->
   phogal.resize()
   phogal.animate()
   phogal.bind_buttons()
+  phogal.set_opacity()
 
 $ ->
 

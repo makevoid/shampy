@@ -241,7 +241,7 @@
 
   phogal.watch_transition_end = function() {
     var _this = this;
-    return this.elem().find("div:last").on("webkitTransitionEnd", function() {
+    return this.elem().find("div:first").on("webkitTransitionEnd", function() {
       _this.set_opacity();
       return _this.bind_buttons();
     });
@@ -252,7 +252,7 @@
     this.elem().find("div").css({
       opacity: 0
     });
-    visibles = this.reverse ? ".pos0, .pos1" : ".pos1,.pos2";
+    visibles = ".pos1, .pos2, .pos3";
     return this.elem().find(visibles).css({
       opacity: 1
     });
@@ -293,7 +293,8 @@
     clearTimeout(this.timer);
     this.reverse = true;
     this.unbind_buttons();
-    return this.animate_now();
+    this.animate_now();
+    return this.set_opacity();
   };
 
   phogal.unbind_buttons = function() {
@@ -314,7 +315,8 @@
   phogal.start = function() {
     phogal.resize();
     phogal.animate();
-    return phogal.bind_buttons();
+    phogal.bind_buttons();
+    return phogal.set_opacity();
   };
 
   $(function() {

@@ -389,9 +389,9 @@ body.layout_photo {
     width: 100%;
     margin: 0 auto;
     display: block; }
-  .photo_gallery .pos1 {
-    -webkit-transform: translate3d(0, 0, 0); }
   .photo_gallery .pos2 {
+    -webkit-transform: translate3d(0, 0, 0); }
+  .photo_gallery .pos3 {
     -webkit-transform: translate3d(100%, 0, 0); }
   .photo_gallery .close, .photo_gallery .next, .photo_gallery .prev {
     position: absolute;
