@@ -22,13 +22,10 @@ ul {
   box-sizing: border-box; }
 
 body {
-  background: #fbce72;
+  background: white;
   background-size: 100%;
   font-family: Aller, Verdana, Arial;
   color: #333333; }
-
-body.prodotti {
-  background: white; }
 
 a {
   color: #333333; }
