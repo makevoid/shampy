@@ -15,6 +15,9 @@ gem "sass"
 
 gem "RedCloth"
 
+gem "nokogiri"
+# gem "aws-s3"
+
 group :development do
   gem "foreman"
   gem "rerun"

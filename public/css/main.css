@@ -391,7 +391,7 @@ body.layout_photo {
     display: block; }
   .photo_gallery .pos2 {
     -webkit-transform: translate3d(0, 0, 0); }
-  .photo_gallery .pos3 {
+  .photo_gallery .pos3, .photo_gallery .pos4 {
     -webkit-transform: translate3d(100%, 0, 0); }
   .photo_gallery .close, .photo_gallery .next, .photo_gallery .prev {
     position: absolute;

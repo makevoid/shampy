@@ -241,7 +241,7 @@
 
   phogal.watch_transition_end = function() {
     var _this = this;
-    return this.elem().find("div:first").on("webkitTransitionEnd", function() {
+    return this.elem().find("div.pos1").on("webkitTransitionEnd", function() {
       _this.set_opacity();
       return _this.bind_buttons();
     });
@@ -283,16 +283,16 @@
   };
 
   phogal.next = function() {
+    this.unbind_buttons();
     clearTimeout(this.timer);
     this.reverse = false;
-    this.unbind_buttons();
     return this.animate_now();
   };
 
   phogal.prev = function() {
+    this.unbind_buttons();
     clearTimeout(this.timer);
     this.reverse = true;
-    this.unbind_buttons();
     this.animate_now();
     return this.set_opacity();
   };
@@ -315,8 +315,8 @@
   phogal.start = function() {
     phogal.resize();
     phogal.animate();
-    phogal.bind_buttons();
-    return phogal.set_opacity();
+    phogal.set_opacity();
+    return phogal.bind_buttons();
   };
 
   $(function() {

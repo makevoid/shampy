@@ -175,7 +175,6 @@ phogal.resize_images = ->
     if proportion >= 1 # vertical
       width = win_height / proportion
       $(elem).width width
-
       # todo: use transitions
     else
       top = (win_height - elem.height())/2
@@ -195,7 +194,7 @@ phogal.animate_now = ->
   @animate()
 
 phogal.watch_transition_end = ->
-  @elem().find("div:first").on "webkitTransitionEnd", =>
+  @elem().find("div.pos1").on "webkitTransitionEnd", =>
 
     @set_opacity()
     @bind_buttons()
@@ -204,7 +203,6 @@ phogal.set_opacity = ->
   @elem().find("div").css opacity: 0
   visibles = ".pos1, .pos2, .pos3"
   @elem().find(visibles).css opacity: 1
-
 
 phogal.animate_once = ->
   unless @reverse
@@ -232,19 +230,17 @@ phogal.animate_once = ->
     elem.addClass "pos#{pos_num}"
 
 phogal.next = ->
+  @unbind_buttons()
   clearTimeout @timer
   @reverse = false
-  @unbind_buttons()
   @animate_now()
 
 phogal.prev = ->
+  @unbind_buttons()
   clearTimeout @timer
   @reverse = true
-  @unbind_buttons()
   @animate_now()
   @set_opacity()
-
-
 
 phogal.unbind_buttons = ->
   @elem().find(".next, .prev").off "click"
@@ -257,8 +253,8 @@ phogal.bind_buttons = ->
 phogal.start = ->
   phogal.resize()
   phogal.animate()
-  phogal.bind_buttons()
   phogal.set_opacity()
+  phogal.bind_buttons()
 
 $ ->
 

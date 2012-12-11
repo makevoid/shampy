@@ -8,8 +8,8 @@
   %a.next >
   - @photos.shuffle!
   - size = @photos.size
-  - size = 4
+  - size = 15
   - @photos[0..size].each_with_index do |photo, idx|
-    - val = idx - size
-    %div{ class: "pos#{size-idx}" }
+    - val = size - idx - 1
+    %div{ class: "pos#{val}" }
       %img{ src: photo.path }
