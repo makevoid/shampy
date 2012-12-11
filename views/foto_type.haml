@@ -11,5 +11,5 @@
   - size = 15
   - @photos[0..size].each_with_index do |photo, idx|
     - val = size - idx - 1
-    %div{ class: "pos#{val}" }
+    %div{ "data-author" => photo.author, class: "pos#{val}" }
       %img{ src: photo.path }

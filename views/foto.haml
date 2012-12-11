@@ -1,7 +1,24 @@
 %h1 Foto Tagli
 
-%nav
-  - link_to "Donna",    "/foto_tagli/donna"  , class: "btn"
-  - link_to "Uomo",     "/foto_tagli/uomo"   , class: "btn"
-  - link_to "Bambino",  "/foto_tagli/bambino", class: "btn"
-  - link_to "Sposa",    "/foto_tagli/sposa"  , class: "btn"
+%nav.foto_tagli
+  .box
+    %a{ href: "/foto_tagli/donna"}
+      %img{ src: "http://localhost:3000/img/home/1x2/1.jpg" }
+      Donna
+      
+  .box
+    %a{ href: "/foto_tagli/uomo"}
+      %img{ src: "http://localhost:3000/img/home/1x2/1.jpg" }   
+      Uomo
+      
+  .box
+    %a{ href: "/foto_tagli/sposa"}
+      %img{ src: "http://localhost:3000/img/home/1x2/1.jpg" } 
+      Sposa
+      
+  .box
+    %a{ href: "/foto_tagli/bambino"}
+      %img{ src: "http://localhost:3000/img/home/1x2/1.jpg" }   
+      Bambino
+    
+  .clear

@@ -1,6 +1,6 @@
 class Photo
 
-  attr_reader :path, :name, :file
+  attr_reader :path, :name, :file, :author
 
   def initialize(attributes={})
     if attributes[:full_path]

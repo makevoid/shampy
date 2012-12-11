@@ -418,6 +418,17 @@ body.layout_photo {
   .photo_gallery .next {
     right: 0; }
 
+nav.category .box, nav.foto_tagli .box {
+  width: 23.75%;
+  margin: 0 1.66667% 0 0;
+  float: left; }
+  nav.category .box img, nav.foto_tagli .box img {
+    width: 100%; }
+nav.category .box:nth-child(4n), nav.foto_tagli .box:nth-child(4n) {
+  margin: 0; }
+nav.category a:hover, nav.foto_tagli a:hover {
+  opacity: 0.9; }
+
 .user {
   margin: 0 0 10px 0;
   padding: 5px 1.5% 10px;
