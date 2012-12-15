@@ -3,6 +3,7 @@ class Photo
   attr_reader :path, :name, :file, :author
 
   def initialize(attributes={})
+    @author = attributes[:author]
     if attributes[:full_path]
       @path = attributes[:full_path]
       @name = File.basename @path
@@ -20,10 +21,20 @@ class Photo
 
   def self.all_photos(type)
     s3 = S3.new "shampy"
-    photos = s3.files("foto", "donna", "colombo")
+    photos = s3.files "foto", "donna", "colombo"
     photos.map do |full_path|
-      Photo.new full_path: full_path
+      title = full_path.split("/")[5]
+      p title
+      author = titles.find{ |title| title[:directory] == title }
+      author = author[:name] if author
+      p author
+      p "-"
+      Photo.new full_path: full_path, author: author
     end
+  end
+
+  def self.titles
+    @@titles ||= SimpleArticleFormat.load "#{PATH}/saf/photos.saf"
   end
 
   # def self.all_photos(type)
