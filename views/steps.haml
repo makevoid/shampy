@@ -1,7 +1,24 @@
 %h1 Step by Step
 
-%nav
-  - link_to "Donna",    "/step_by_step/donna"  , class: "btn"
-  - link_to "Uomo",     "/step_by_step/uomo"   , class: "btn"
-  - link_to "Bambino",  "/step_by_step/bambino", class: "btn"
-  - link_to "Sposa",    "/step_by_step/sposa"  , class: "btn"
+%nav.category.step_by_step
+  .box
+    %a{ href: "/foto_tagli/donna"}
+      %img{ src: "/img/categories/step_by_step/donna.jpg" }
+      Donna
+
+  .box
+    %a{ href: "/foto_tagli/uomo"}
+      %img{ src: "/img/categories/step_by_step/uomo.jpg" }
+      Uomo
+
+  .box
+    %a{ href: "/foto_tagli/sposa"}
+      %img{ src: "/img/categories/step_by_step/sposa.jpg" }
+      Sposa
+
+  .box
+    %a{ href: "/foto_tagli/bambino"}
+      %img{ src: "/img/categories/step_by_step/bambino.jpg" }
+      Bambino
+
+  .clear
