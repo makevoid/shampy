@@ -1,15 +1,17 @@
+- @photos.shuffle!
+- size = @photos.size
+- size = 15
+- photos = @photos[0..size]
+
 %h1
-  Foto:
-  %span= @type.capitalize
+  = photos.first.author
+
 
 .photo_gallery
   %a.close{ href: "/foto_tagli" } x
   %a.prev <
   %a.next >
-  - @photos.shuffle!
-  - size = @photos.size
-  - size = 15
-  - @photos[0..size].each_with_index do |photo, idx|
+  - photos.each_with_index do |photo, idx|
     - val = size - idx - 1
     %div{ "data-author" => photo.author, class: "pos#{val}" }
       %img{ src: photo.path }

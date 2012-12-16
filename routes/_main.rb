@@ -40,6 +40,7 @@ class Shampy < Sinatra::Base
     @type = type
     halt 404, "Not found" unless Type.all.include? type
     @photos = Photo.all @type
+    halt "Mancano le foto su S3 in /foto/#{@type} !" if @photos == []
     haml :foto_type, layout: :layout_photo
   end
 

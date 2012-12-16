@@ -185,8 +185,8 @@
   g.phogal = phogal;
 
   phogal.init = function(selector) {
-    this.timer = null;
-    return this.selector = selector;
+    this.selector = selector;
+    return this.timer = null;
   };
 
   phogal.elem = function() {
@@ -197,6 +197,9 @@
 
   phogal.resize = function() {
     var _this = this;
+    this.elem().find(".pos2 img").imagesLoaded(function() {
+      return _this.resize_images();
+    });
     return this.elem().find("img").imagesLoaded(function() {
       _this.resize_images();
       return $(window).on("resize", function() {
@@ -243,8 +246,13 @@
     var _this = this;
     return this.elem().find("div.pos1").on("webkitTransitionEnd", function() {
       _this.set_opacity();
-      return _this.bind_buttons();
+      _this.bind_buttons();
+      return _this.change_title();
     });
+  };
+
+  phogal.change_title = function() {
+    return $("body h1").html(this.elem().find(".pos2").data("author"));
   };
 
   phogal.set_opacity = function() {
@@ -312,7 +320,24 @@
     });
   };
 
+  phogal.main_img = function() {
+    return this.elem().find(".pos2 img");
+  };
+
+  phogal.appear = function() {
+    var _this = this;
+    this.main_img().css({
+      opacity: 0
+    });
+    return this.main_img().imagesLoaded(function() {
+      return _this.main_img().animate({
+        opacity: 1
+      });
+    });
+  };
+
   phogal.start = function() {
+    phogal.appear();
     phogal.resize();
     phogal.animate();
     phogal.set_opacity();

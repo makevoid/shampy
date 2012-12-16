@@ -149,9 +149,8 @@ phogal = {}
 
 g.phogal = phogal
 
-phogal.init = (selector) ->
+phogal.init = (@selector) ->
   @timer = null
-  this.selector = selector
 
 phogal.elem = ->
   $(phogal.selector)
@@ -160,15 +159,18 @@ phogal.anim_time = 5000
 # phogal.anim_time = 2000 # testing
 
 phogal.resize = ->
-  this.elem().find("img").imagesLoaded =>
-    this.resize_images()
+  @elem().find(".pos2 img").imagesLoaded =>
+    @resize_images()
+
+  @elem().find("img").imagesLoaded =>
+    @resize_images()
     # todo: debounced resize
     $(window).on "resize", =>
-      this.resize_images()
+      @resize_images()
 
 phogal.resize_images = ->
   win_height = $(window).height()
-  divs = this.elem().find("div")
+  divs = @.elem().find("div")
   divs.each (idx, element) =>
     elem = $(element).find "img"
     proportion = elem.height() / elem.width()
@@ -198,6 +200,10 @@ phogal.watch_transition_end = ->
 
     @set_opacity()
     @bind_buttons()
+    @change_title()
+
+phogal.change_title = ->
+  $("body h1").html @elem().find(".pos2").data("author")
 
 phogal.set_opacity = ->
   @elem().find("div").css opacity: 0
@@ -250,7 +256,18 @@ phogal.bind_buttons = ->
   @elem().find(".next").on "click", => @next()
   @elem().find(".prev").on "click", => @prev()
 
+phogal.main_img = ->
+  @elem().find(".pos2 img")
+
+phogal.appear = ->
+  @main_img().css opacity: 0
+
+  @main_img().imagesLoaded =>
+    @main_img().animate opacity: 1
+
+
 phogal.start = ->
+  phogal.appear()
   phogal.resize()
   phogal.animate()
   phogal.set_opacity()

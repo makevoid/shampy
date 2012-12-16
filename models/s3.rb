@@ -14,7 +14,7 @@ class S3
     new(bucket).get
   end
 
-  def files(type, category, subcat)
+  def files(type, category, subcat=nil)
     filtered(type, category, subcat).map do |file|
       file[:url]
     end
