@@ -44,6 +44,14 @@ class Shampy < Sinatra::Base
     haml :foto_type, layout: :layout_photo
   end
 
+  get "/foto_tagli/:type/:subtype" do |type, subtype|
+    @type, @subtype = type, subtype
+    halt 404, "Not found" unless Type.all.include? type
+    @photos = Photo.type @type, @subtype
+    halt "Mancano le foto su S3 in /foto/#{@type} !" if @photos == []
+    haml :foto_type, layout: :layout_photo
+  end
+
   get "/step_by_step" do
     haml :steps
   end
