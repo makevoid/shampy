@@ -1,0 +1,5 @@
+# Shampy
+
+### TODO:
+
+- categorie prodotti
