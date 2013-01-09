@@ -1,0 +1,5 @@
+- type = foto_authors
+- Photo.authors(type).each do |author_url, author|
+  %p
+    %a{ href: "/foto_tagli/#{type}/#{author_url}" }
+      = author
