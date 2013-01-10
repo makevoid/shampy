@@ -31,10 +31,11 @@
             - link_to "Norme",      "/norme"
           - if  admin? || !member?
             - link_to "Offerta",      "/offerta"
-          - link_to "Chi Siamo",    "/chi_siamo"
           -# categorie: uomo, donna, bambino, sposa
         - if admin?
           - link_to "Utenti",     "/users"
+        - link_to "Chi Siamo",    "/chi_siamo", class: "last"
+        .clear
 
       %section.content= yield
 
@@ -42,5 +43,5 @@
       %footer
         © #{Time.now.year} Shampy
       .clear &nbsp;
-        
+
       = partial :javascripts

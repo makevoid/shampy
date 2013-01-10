@@ -52,7 +52,13 @@ nav.main {
   background: black;
   padding: 0.6% 2% 0.5%; }
   nav.main a {
-    color: white; }
+    color: white;
+    border-right: 1px solid #aaaaaa;
+    margin: 0;
+    float: left;
+    padding: 3px 9px 0; }
+  nav.main a.last {
+    border: 0; }
   nav.main a:hover {
     background: white;
     color: black; }
